@@ -1,0 +1,211 @@
+body {
+	font-family: 'Fira Sans', sans-serif;
+	background: #eaebf0 url('../img/background.png') repeat;
+	background-size: 1rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main-header {
+	background: #fff;
+}
+
+.main-header-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem 0;
+}
+
+.main-logo {
+	width: 179px;
+	height: 24px;
+}
+
+.header-nav {
+	display: inline-block;
+}
+
+.nav-item {
+	margin-left: 2.125rem;
+	font-size: 1rem;
+	line-height: 1rem;
+	color: #3e4247;
+}
+
+.development-logo-block {
+	padding: 5rem 0;
+	background: #161616;
+}
+
+.development-logo {
+	display: block;
+	width: 419px;
+	height: 131px;
+	margin: 0 auto;
+}
+
+.promo-block {
+	padding: 4rem 0;
+	text-align: center;
+  color: #3e4247;
+}
+
+.promo-title {
+	margin: 0;
+	font-size: 1.5rem;
+	line-height: 2.315rem;
+	font-weight: 700;
+}
+
+.promo-text {
+	padding: 0 12.5rem;
+	margin: 0.5rem 0 1rem 0;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
+.promo-btn {
+	padding: 0.8rem 2rem;
+	font-size: 1rem;
+	line-height: 1rem;
+	color: #fff;
+	background: #000;
+	border: none;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.promo-btn:focus {
+	outline: none;
+}
+
+.house-card {
+	display: flex;
+	margin-bottom: 3rem;
+}
+
+.house-card:hover {
+	box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.house-card:last-of-type{
+	margin-bottom: 6rem;
+}
+
+.card-img {
+	width: 30.25rem;
+	height: 21.9rem;
+}
+
+.house-info {
+	padding: 1.5rem 1rem;
+	background: #fff;
+	border-bottom: 2px solid #646971;
+}
+
+.house-district {
+	margin-top: 0;
+	margin-bottom: 1.5rem;
+	font-size: 1rem;
+	line-height: 1.25rem;
+	font-family: monaco, Consolas, 'Lucida Console', monospace;
+	color: #646971;
+}
+
+.house-address {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	font-size: 2.5rem;
+	line-height: 1.4;
+	font-weight: 700;
+	color: #000;
+}
+
+.house-description {
+	margin-right: 5.25rem;
+	font-size: 1rem;
+	line-height: 1.5;
+  color: #3e4247;
+}
+
+.main-footer {
+	padding-top: 2rem;
+	padding-bottom: 1.5rem;
+	background: #111;
+}
+
+.contact-block,
+.house-complexes-block,
+.about-company-block {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-title {
+	margin: 0;
+	font-size: 0.875rem;
+	font-weight: 700;
+  color: #646971;
+}
+
+.company-numbers {
+	margin-top: 0.25rem;
+	margin-bottom: 0;
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+	font-weight: 300;
+	color: #a9afb6;
+}
+
+.phone-number {
+	margin-top: 1rem;
+	margin-bottom: 0;
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+	font-weight: 300;
+	color: #a9afb6;
+}
+
+.footer-decor-line {
+	width: 100%;
+	height: 2px;
+	margin-bottom: 1rem;
+	background: #3e4247;
+}
+
+.house-complex,
+.all-complex,
+.about-company {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-size: 0.875rem;
+	line-height: 1.375rem;
+	font-weight: 300;
+	color: #fff;
+}
+
+.all-complex {
+	margin-top: 1rem;
+}
+
+.all-complex::after {
+	display: inline-block;
+	content: '';
+	width: 0.55rem;
+	height: 0.5rem;
+	margin-left: 0.5rem;
+	background: url('../img/combined-shape.svg');
+}
+
+.copyright {
+	margin-top: 6rem;
+	margin-bottom: 0;
+	padding-right: 2.6rem;
+	font-size: 0.69rem;
+	line-height: 1rem;
+	font-weight: 300;
+	color: #a9afb6;
+}
