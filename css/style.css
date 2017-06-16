@@ -12,7 +12,7 @@ a {
   background: #fff;
 }
 
-.main-header-block {
+.main-header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +35,7 @@ a {
   color: #3e4247;
 }
 
-.development-logo-block {
+.development-logo-container {
   padding: 5rem 0;
   background: #161616;
 }
@@ -71,6 +71,7 @@ a {
   padding: 0.8rem 2rem;
   font-size: 1rem;
   line-height: 1rem;
+  font-family: 'Fira Sans', sans-serif;
   color: #fff;
   background: #000;
   border: none;
@@ -82,16 +83,16 @@ a {
   outline: none;
 }
 
-.house-card {
+.complexes-card {
   display: flex;
   margin-bottom: 3rem;
 }
 
-.house-card:hover {
-  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.3);
+.complexes-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.house-card:last-of-type{
+.complexes-card:last-of-type{
   margin-bottom: 6rem;
 }
 
@@ -126,7 +127,7 @@ a {
 }
 
 .house-description {
-  margin-right: 5.25rem;
+  margin: 0 7rem 0 0;
   font-size: 1rem;
   line-height: 1.5;
   color: #3e4247;
@@ -138,22 +139,32 @@ a {
   background: #111;
 }
 
-.contact-block,
-.house-complexes-block,
+.footer-requisites,
+.residential-complexes,
 .about-company-block {
   display: flex;
   flex-direction: column;
 }
 
+.residential-complexes,
+.copyright {
+  margin-left: -12px;
+}
+
+.about-company-block {
+  margin-left: -16px;
+}
+
 .footer-title {
   margin: 0;
   font-size: 0.875rem;
+  line-height: 1.5rem;
   font-weight: 700;
   color: #646971;
 }
 
 .company-numbers {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   margin-bottom: 0;
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -161,7 +172,7 @@ a {
   color: #a9afb6;
 }
 
-.phone-number {
+.footer-phone {
   margin-top: 1rem;
   margin-bottom: 0;
   font-size: 0.875rem;
@@ -171,14 +182,14 @@ a {
 }
 
 .footer-decor-line {
-  width: 100%;
+  width: 11.5rem;
   height: 2px;
   margin-bottom: 1rem;
   background: #3e4247;
 }
 
-.house-complex,
-.all-complex,
+.residential-complex,
+.all-complexes,
 .about-company {
   margin-top: 0.5rem;
   margin-bottom: 0;
@@ -188,7 +199,7 @@ a {
   color: #fff;
 }
 
-.all-complex {
+.all-complexes {
   margin-top: 1rem;
 }
 
