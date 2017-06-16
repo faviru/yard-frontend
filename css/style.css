@@ -12,7 +12,7 @@ a {
   background: #fff;
 }
 
-.main-header-container {
+.main-header-positioner {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +31,7 @@ a {
 .nav-item {
   margin-left: 2.125rem;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1;
   color: #3e4247;
 }
 
@@ -47,7 +47,7 @@ a {
   margin: 0 auto;
 }
 
-.promo-block {
+.promo-positioner {
   padding: 4rem 0;
   text-align: center;
   color: #3e4247;
@@ -70,7 +70,7 @@ a {
 .promo-btn {
   padding: 0.8rem 2rem;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1;
   font-family: 'Fira Sans', sans-serif;
   color: #fff;
   background: #000;
@@ -83,32 +83,32 @@ a {
   outline: none;
 }
 
-.complexes-card {
+.complex-card {
   display: flex;
   margin-bottom: 3rem;
 }
 
-.complexes-card:hover {
+.complex-card:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.complexes-card:last-of-type{
+.complex-card:last-of-type{
   margin-bottom: 6rem;
 }
 
-.card-img {
+.complex-card-img {
   flex-shrink: 0;
   width: 30.25rem;
   height: 21.9rem;
 }
 
-.house-info {
+.complex-card-info {
   padding: 1.5rem 1rem;
   background: #fff;
   border-bottom: 2px solid #646971;
 }
 
-.house-district {
+.complex-card-district {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1rem;
@@ -117,7 +117,7 @@ a {
   color: #646971;
 }
 
-.house-address {
+.complex-card-address {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 2.5rem;
@@ -126,7 +126,7 @@ a {
   color: #000;
 }
 
-.house-description {
+.complex-card-description {
   margin: 0 7rem 0 0;
   font-size: 1rem;
   line-height: 1.5;
@@ -140,18 +140,18 @@ a {
 }
 
 .footer-requisites,
-.residential-complexes,
-.about-company-block {
+.footer-complexes-list,
+.about-company-list {
   display: flex;
   flex-direction: column;
 }
 
-.residential-complexes,
+.footer-complexes-list,
 .copyright {
   margin-left: -12px;
 }
 
-.about-company-block {
+.about-company-list {
   margin-left: -16px;
 }
 
@@ -181,14 +181,14 @@ a {
   color: #a9afb6;
 }
 
-.footer-decor-line {
+.line {
   width: 11.5rem;
   height: 2px;
   margin-bottom: 1rem;
   background: #3e4247;
 }
 
-.residential-complex,
+.footer-complex,
 .all-complexes,
 .about-company {
   margin-top: 0.5rem;
@@ -212,12 +212,12 @@ a {
   background: url('../img/combined-shape.svg');
 }
 
-.copyright {
+.footer-copyright {
   margin-top: 6rem;
   margin-bottom: 0;
   padding-right: 2.6rem;
   font-size: 0.69rem;
-  line-height: 1rem;
+  line-height: 1;
   font-weight: 300;
   color: #a9afb6;
 }
