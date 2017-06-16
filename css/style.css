@@ -180,7 +180,7 @@ a {
 }
 
 .footer-link,
-.all-footer-link{
+.footer-link-all {
   margin-top: 0.5rem;
   margin-bottom: 0;
   font-size: 0.875rem;
@@ -189,11 +189,11 @@ a {
   color: #fff;
 }
 
-.all-footer-link {
+.footer-link-all {
   margin-top: 1rem;
 }
 
-.all-footer-link::after {
+.footer-link-all:after {
   display: inline-block;
   content: '';
   width: 0.55rem;
