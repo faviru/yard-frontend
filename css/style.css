@@ -2,6 +2,8 @@ body {
   font-family: 'Fira Sans', sans-serif;
   background: #eaebf0 url('../img/background.png') repeat;
   background-size: 1rem;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialised;
 }
 
 a {
