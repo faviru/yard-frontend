@@ -2,11 +2,15 @@ body {
   font-family: 'Fira Sans', sans-serif;
   background: #eaebf0 url('../img/background.png') repeat;
   background-size: 1rem;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialised;
 }
 
 a {
   text-decoration: none;
 }
+
+/* HEADER */
 
 .main-header {
   background: #fff;
@@ -34,6 +38,8 @@ a {
   line-height: 1;
   color: #3e4247;
 }
+
+/* COMPLEXES */
 
 .development-logo-container {
   padding: 5rem 0;
@@ -132,6 +138,8 @@ a {
   color: #3e4247;
 }
 
+/* FOOTER */
+
 .main-footer {
   padding-top: 2rem;
   padding-bottom: 1.5rem;
@@ -151,6 +159,7 @@ a {
   line-height: 1.5rem;
   font-weight: 700;
   color: #646971;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 .company-numbers {
@@ -207,7 +216,7 @@ a {
   margin-bottom: 0;
   padding-right: 2.6rem;
   font-size: 0.69rem;
-  line-height: 1;
+  line-height: 1.7;
   font-weight: 300;
   color: #a9afb6;
 }
