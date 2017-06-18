@@ -23,7 +23,8 @@
   color: #3e4247;
 }
 
-.complex-address-detailed {
+.complex-address-detailed,
+.complex-summary-sub-title {
   font-size: 0.875rem;
   line-height: 1.57;
   font-weight: 300;
@@ -41,31 +42,32 @@
   color: #00779a;
   background: #fff;
   border-radius: 2px;
+  border: 1px solid #e0e0e1;
 }
 
 .complex-address-bar-favorites-btn:focus {
   outline: none;
 }
 
-.gallery {
+.complex-gallery {
   position: relative;
   margin: 0 auto;
 }
 
-.gallery-wrapper {
+.complex-gallery-wrapper {
   display: flex;
   overflow-x: scroll;
   white-space: nowrap;
 }
 
-.gallery-element {
+.complex-gallery-element {
   flex-grow: 1;
   flex-shrink: 0;
   height: 25rem;
   /*flex-basis: 39.13rem;*/
 }
 
-.gallery-more-btn {
+.complex-gallery-more-btn {
   position: absolute;
   bottom: 1rem;
   padding: 0.5rem 1rem;
@@ -75,25 +77,25 @@
   font-family: 'Fira Sans', sans-serif;
   color: #fff;
   background: #00779a;
-  border: 1px solid #e0e0e1;
   border-radius: 2px;
+  border: none;
 }
 
-.gallery-more-btn:focus {
+.complex-gallery-more-btn:focus {
   outline: none;
 }
 
-.summary-wrapper {
+.complex-summary-wrapper {
   padding: 1.5rem 0;
   border-bottom: 1px solid #e0e0e1;
 }
 
-.summary-parameter {
+.complex-summary-parameter {
   display: inline-block;
   margin-right: 3rem;
 }
 
-.summary-title {
+.complex-summary-title {
   margin: 0 0 0.625rem 0;
   line-height: 1.13;
   font-weight: 700;
@@ -107,7 +109,8 @@
 }
 
 .complex-feature-title,
-.area-feature-location {
+.area-feature-location,
+.offer-card-feature-title {
   display: inline-block;
   font-size: 1rem;
   line-height: 1.38;
@@ -140,7 +143,8 @@
 
 .complex-features-title,
 .complex-description-title,
-.complex-infrastructure-title {
+.complex-infrastructure-title,
+.offer-cards-title {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
   line-height: 1.13;
@@ -267,8 +271,12 @@
   width: 100%;
 }
 
+.area-guide-img {
+  height: 35rem;
+}
+
 .area-features {
-  margin: -9.5rem 0 4rem 0;
+  margin: -9.8rem 0 4rem 0;
 }
 
 .area-feature-map {
