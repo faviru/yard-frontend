@@ -109,8 +109,8 @@
 }
 
 .complex-feature-title,
-.area-feature-location,
-.offer-card-feature-title {
+.complex-area-feature-location,
+.complex-offer-card-feature-title {
   display: inline-block;
   font-size: 1rem;
   line-height: 1.38;
@@ -123,7 +123,7 @@
 }
 
 .complex-feature-text,
-.area-feature-name {
+.complex-area-feature-name {
   display: inline-block;
   margin: 0.5rem 0 0 0;
   font-size: 1rem;
@@ -144,7 +144,7 @@
 .complex-features-title,
 .complex-description-title,
 .complex-infrastructure-title,
-.offer-cards-title {
+.complex-offer-cards-title {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
   line-height: 1.13;
@@ -182,18 +182,18 @@
   color: #3e4247;
 }
 
-.offer-cards {
+.complex-offer-cards {
   padding: 4rem 0;
   background: #f4f5f9;
 }
 
-.offer-card {
+.complex-offer-card {
   margin: 0.5rem 0 0 0;
   padding: 1.5rem 2rem;
   background: #fff;
 }
 
-.offer-card-title {
+.complex-offer-card-title {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.1;
@@ -202,11 +202,11 @@
   color: #3e4247;
 }
 
-.offer-card-feature {
+.complex-offer-card-feature {
   margin-top: 1.5rem;
 }
 
-.offer-card-feature-value {
+.complex-offer-card-feature-value {
   margin: .625rem 0 0 0;
   font-size: 1rem;
   line-height: 1.38;
@@ -214,7 +214,7 @@
   color: #3e4247;
 }
 
-.offer-card-show-btn {
+.complex-offer-card-show-btn {
   display: block;
   margin: 2rem auto 0 auto;
   padding: 0.75rem 2rem;
@@ -227,20 +227,20 @@
   border-radius: 2px;
 }
 
-.area-guide {
+.complex-area-guide {
   padding: 4rem 0 13.625rem 0;
   /*margin-bottom: 13.56rem;*/
   background: #3e4247;
 }
 
-.area-guide-wrapper {
+.complex-area-guide-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
 
-.area-guide-name {
+.complex-area-guide-name {
   margin: 0;
   font-size: 1.5rem;
   line-height: 1;
@@ -249,7 +249,7 @@
   color: #a9afb6;
 }
 
-.area-guide-title {
+.complex-area-guide-title {
   margin: 3rem 0;
   padding-right: 0.5rem;
   font-size: 3rem;
@@ -259,47 +259,47 @@
   color: #fff;
 }
 
-.area-guide-link {
+.complex-area-guide-link {
   font-size: 1rem;
   line-height: 1.5;
   font-family: 'Fira Sans', sans-serif;
   color: #00779a;
 }
 
-.area-guide-img,
-.area-feature-img {
+.complex-area-guide-img,
+.complex-area-feature-img {
   width: 100%;
 }
 
-.area-guide-img {
+.complex-area-guide-img {
   height: 35rem;
 }
 
-.area-features {
+.complex-area-features {
   margin: -9.8rem 0 4rem 0;
 }
 
-.area-feature-map {
+.complex-area-feature-map {
   height: 19.5rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.area-feature {
+.complex-area-feature {
   padding: 1.5rem;
   background: #fff;
   border: solid 1px #e0e0e1;
 }
 
-.area-feature-wrapper {
+.complex-area-feature-wrapper {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.area-feature-name {
+.complex-area-feature-name {
   display: block;
   margin: 0;
 }
 
-.area-feature-location {
+.complex-area-feature-location {
   display: block;
   margin: 0.5rem 0 0 0;
   line-height: 1.38;
