@@ -2,7 +2,6 @@ import React from "react";
 import { Grid } from "react-flexbox-grid";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from './logo.svg';
 
 const MainHeader = styled.header`
   background: #fff;
@@ -34,7 +33,7 @@ export default () => (
   <MainHeader>
     <Grid>
       <Wrapper>
-        <Logo src={logo} alt="Logo" />
+        <Logo src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="Logo" />
         <Nav>
           <NavLink to="/buy">Купить</NavLink>
           <NavLink to="/rent">Снять</NavLink>

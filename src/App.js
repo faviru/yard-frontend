@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Header from './Header.jsx';
-import List from './Complexes/List/List.jsx';
+import List from './Complexes/List';
+import Show from './Complexes/Show';
 import Footer from './Footer.jsx';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -10,7 +11,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <List />
+          <Route exact path="/" component={List} />
+          <Route exact path="/complex" component={Show} />
           <Footer />
         </div>
       </Router>

@@ -1,5 +1,5 @@
 {
-  "name": "complexes",
+  "name": "compass-site",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,8 +11,7 @@
     "styled-components": "^2.1.0"
   },
   "devDependencies": {
-    "prettier": "^1.4.4",
-    "react-scripts": "0.9.x"
+    "react-scripts": "^5.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

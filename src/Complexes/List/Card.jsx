@@ -55,12 +55,12 @@ const Description = styled.p`
 
 export default (props) => (
   <Grid>
-    <Card to="#">
+    <Card to="/complex">
       <Photo src={props.img} alt="Complex Photo" />
       <Info>
         <District>{props.district}</District>
         <Address>{props.address}</Address>
-        <Description>{props.description}</Description>
+        <Description>{props.children}</Description>
       </Info>
     </Card>
   </Grid>

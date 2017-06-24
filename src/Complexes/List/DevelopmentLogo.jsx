@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import logo from '../../img/dev-logo.svg';
 
 const Container = styled.section`
   padding: 5rem 0;
@@ -15,6 +14,6 @@ const Logo = styled.img`
 
 export default () => (
   <Container>
-    <Logo src={logo} alt="Compass Development" />
+    <Logo src={`${process.env.PUBLIC_URL}/img/dev-logo.svg`} alt="Compass Development" />
   </Container>
 );
