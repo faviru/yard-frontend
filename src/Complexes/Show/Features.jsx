@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import styled from "styled-components";
 
-const Featires = styled.section`
+const Features = styled.section`
   padding: 2rem 0 1rem 0;
   font-size: 0;
 `;
@@ -36,7 +36,7 @@ const FeatureText = styled.dd`
 `;
 
 export default () => (
-  <Featires>
+  <Features>
     <Grid>
       <Row>
         <Col lg={2}>
@@ -76,5 +76,5 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-  </Featires>
+  </Features>
 );

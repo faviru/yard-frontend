@@ -11,6 +11,10 @@ import OfferCard from './OfferCard.jsx';
 import AreaGuide from './AreaGuide.jsx';
 import AreaFeatures from './AreaFeatures.jsx';
 
+const Complex = styled.div`
+  background: #fff;
+`;
+
 const OfferCards = styled.section`
   padding: 4rem 0;
   background: #f4f5f9;
@@ -26,7 +30,7 @@ const Title = styled.h3`
 `;
 
 export default () => (
-  <div>
+  <Complex>
     <Address />
     <Gallery />
     <Summary />
@@ -42,18 +46,30 @@ export default () => (
         </Row>
         <Row>
           <Col lg={4}>
-            <OfferCard title="1-комнатные квартиры" value1="от 59 до 120 м²" value="от 20.3 до 84.2 млн руб"/>
+            <OfferCard
+              count={1} 
+              area={{min:59, max:120}}
+              cost={{min:20.3, max:84.2}}
+            />
           </Col>
           <Col lg={4}>
-            <OfferCard title="2-комнатные квартиры" value1="от 59 до 120 м²" value="от 20.3 до 84.2 млн руб"/>
+            <OfferCard
+              count={2} 
+              area={{min:59, max:120}}
+              cost={{min:20.3, max:84.2}}
+            />
           </Col>
           <Col lg={4}>
-            <OfferCard title="3-комнатные квартиры" value1="от 59 до 120 м²" value="от 20.3 до 84.2 млн руб"/>
+            <OfferCard
+              count={3} 
+              area={{min:59, max:120}}
+              cost={{min:20.3, max:84.2}}
+            />
           </Col>
         </Row>
       </Grid>
     </OfferCards>
     <AreaGuide />
     <AreaFeatures />
-  </div>
+  </Complex>
 );

@@ -37,7 +37,7 @@ const District = styled.p`
   color: #646971;
 `;
 
-const Address = styled.h3`
+const Name = styled.h3`
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 2.5rem;
@@ -59,7 +59,7 @@ export default (props) => (
       <Photo src={props.img} alt="Complex Photo" />
       <Info>
         <District>{props.district}</District>
-        <Address>{props.address}</Address>
+        <Name>{props.name}</Name>
         <Description>{props.children}</Description>
       </Info>
     </Card>

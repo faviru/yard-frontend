@@ -48,11 +48,11 @@ const ShowBtn = styled.button`
 
 export default (props) => (
   <OfferCard>
-    <Title>{props.title}</Title>
+    <Title>{props.count}-комнатные квартиры</Title>
       <FeatureName>Площадь</FeatureName>
-      <FeatureValue>{props.value1}</FeatureValue>
+      <FeatureValue>от {props.area.min} до {props.area.max} м²</FeatureValue>
       <FeatureName>Стоимость</FeatureName>
-      <FeatureValue>{props.value2}</FeatureValue>
+      <FeatureValue>от {props.cost.min} до {props.cost.max} млн руб</FeatureValue>
     <ShowBtn>Посмотреть предложения</ShowBtn>
   </OfferCard>
 );

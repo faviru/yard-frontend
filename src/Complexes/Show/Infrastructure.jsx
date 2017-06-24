@@ -15,7 +15,7 @@ const Title = styled.h3`
   color: #3e4247;
 `;
 
-const Element = styled.p`
+const Facility = styled.p`
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
   line-height: 1.38;
@@ -33,31 +33,31 @@ export default () => (
       </Row>
       <Row>
         <Col lg={2}>
-          <Element>Бассейн</Element>
+          <Facility>Бассейн</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Детский сад</Element>
+          <Facility>Детский сад</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Частная школа</Element>
+          <Facility>Частная школа</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Бассейн</Element>
+          <Facility>Бассейн</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Детский сад</Element>
+          <Facility>Детский сад</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Частная школа</Element>
+          <Facility>Частная школа</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Частная школа</Element>
+          <Facility>Частная школа</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Частная школа</Element>
+          <Facility>Частная школа</Facility>
         </Col>
         <Col lg={2}>
-          <Element>Частная школа</Element>
+          <Facility>Частная школа</Facility>
         </Col>
       </Row>
     </Grid>

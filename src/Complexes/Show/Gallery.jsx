@@ -13,11 +13,12 @@ const Wrapper = styled.div`
   white-space: nowrap;
 `;
 
-const Element = styled.img`
+const Photo = styled.img`
   flex-grow: 1;
   flex-shrink: 0;
   height: 25rem;
 `;
+
 const MoreBtn = styled.button`
   position: absolute;
   bottom: 1rem;
@@ -39,11 +40,11 @@ const MoreBtn = styled.button`
 export default () => (
   <Gallery>
     <Wrapper>
-      <Element src={`${process.env.PUBLIC_URL}/img/bitmap_1.png`} alt="House photo" />
-      <Element src={`${process.env.PUBLIC_URL}/img/bitmap_2.png`} alt="House photo" />
-      <Element src={`${process.env.PUBLIC_URL}/img/bitmap_5.png`} alt="House photo" />
-      <Element src={`${process.env.PUBLIC_URL}/img/bitmap_3.png`} alt="House photo" />
-      <Element src={`${process.env.PUBLIC_URL}/img/bitmap_4.png`} alt="House photo" />
+      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_1.png`} alt="House photo" />
+      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_2.png`} alt="House photo" />
+      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_5.png`} alt="House photo" />
+      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_3.png`} alt="House photo" />
+      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_4.png`} alt="House photo" />
     </Wrapper>
     <Grid>
       <MoreBtn>41 фотография</MoreBtn>

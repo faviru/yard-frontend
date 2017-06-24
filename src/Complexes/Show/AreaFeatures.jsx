@@ -3,7 +3,8 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import styled from "styled-components";
 
 const AreaFeatures = styled.section`
-  margin: -9.8rem 0 4rem 0;
+  margin-top: -9.8rem;
+  padding-bottom: 4rem;
 `;
 
 const AreaMap = styled.img`
