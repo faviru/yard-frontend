@@ -1,6 +1,6 @@
-import React from "react";
-import { Grid } from "react-flexbox-grid";
-import styled from "styled-components";
+import React from 'react';
+import { Grid } from 'react-flexbox-grid';
+import styled from 'styled-components';
 
 const Address = styled.section`
   border-top: 1px solid #eaebf0;

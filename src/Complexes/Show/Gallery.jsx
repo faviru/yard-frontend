@@ -1,6 +1,6 @@
-import React from "react";
-import { Grid } from "react-flexbox-grid";
-import styled from "styled-components";
+import React from 'react';
+import { Grid } from 'react-flexbox-grid';
+import styled from 'styled-components';
 
 const Gallery = styled.section`
   position: relative;

@@ -1,7 +1,7 @@
-import React from "react";
-import { Grid } from "react-flexbox-grid";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Grid } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const MainHeader = styled.header`
   background: #fff;

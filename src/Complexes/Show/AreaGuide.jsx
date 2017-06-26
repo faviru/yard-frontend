@@ -1,7 +1,7 @@
-import React from "react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const AreaGuide = styled.section`
   padding: 4rem 0 13.625rem 0;

@@ -1,15 +1,15 @@
-import React from "react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import styled from "styled-components";
-import Address from './Address.jsx';
-import Gallery from './Gallery.jsx';
-import Summary from './Summary.jsx';
-import Features from './Features.jsx';
-import Description from './Description.jsx';
-import Infrastructure from './Infrastructure.jsx';
-import OfferCard from './OfferCard.jsx';
-import AreaGuide from './AreaGuide.jsx';
-import AreaFeatures from './AreaFeatures.jsx';
+import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import styled from 'styled-components';
+import Address from './Address';
+import Gallery from './Gallery';
+import Summary from './Summary';
+import Features from './Features';
+import Description from './Description';
+import Infrastructure from './Infrastructure';
+import OfferCard from './OfferCard';
+import AreaGuide from './AreaGuide';
+import AreaFeatures from './AreaFeatures';
 
 const Complex = styled.div`
   background: #fff;
@@ -47,23 +47,23 @@ export default () => (
         <Row>
           <Col lg={4}>
             <OfferCard
-              count={1} 
-              area={{min:59, max:120}}
-              cost={{min:20.3, max:84.2}}
+              count={1}
+              area={{ min: 59, max: 120 }}
+              cost={{ min: 20.3, max: 84.2 }}
             />
           </Col>
           <Col lg={4}>
             <OfferCard
-              count={2} 
-              area={{min:59, max:120}}
-              cost={{min:20.3, max:84.2}}
+              count={2}
+              area={{ min: 59, max: 120 }}
+              cost={{ min: 20.3, max: 84.2 }}
             />
           </Col>
           <Col lg={4}>
             <OfferCard
-              count={3} 
-              area={{min:59, max:120}}
-              cost={{min:20.3, max:84.2}}
+              count={3}
+              area={{ min: 59, max: 120 }}
+              cost={{ min: 20.3, max: 84.2 }}
             />
           </Col>
         </Row>

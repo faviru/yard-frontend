@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const OfferCard = styled.section`
   margin: 0.5rem 0 0 0;
@@ -46,13 +46,13 @@ const ShowBtn = styled.button`
   border-radius: 2px;
 `;
 
-export default (props) => (
+export default props => (
   <OfferCard>
     <Title>{props.count}-комнатные квартиры</Title>
-      <FeatureName>Площадь</FeatureName>
-      <FeatureValue>от {props.area.min} до {props.area.max} м²</FeatureValue>
-      <FeatureName>Стоимость</FeatureName>
-      <FeatureValue>от {props.cost.min} до {props.cost.max} млн руб</FeatureValue>
+    <FeatureName>Площадь</FeatureName>
+    <FeatureValue>от {props.area.min} до {props.area.max} м²</FeatureValue>
+    <FeatureName>Стоимость</FeatureName>
+    <FeatureValue>от {props.cost.min} до {props.cost.max} млн руб</FeatureValue>
     <ShowBtn>Посмотреть предложения</ShowBtn>
   </OfferCard>
 );
