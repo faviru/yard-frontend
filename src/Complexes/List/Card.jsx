@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Grid } from "react-flexbox-grid";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Grid } from 'react-flexbox-grid';
+import styled from 'styled-components';
 
-const Card = styled(Link)`
+const Card = styled(Link) `
   display: flex;
   margin-bottom: 3rem;
 
@@ -53,7 +53,7 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
-export default (props) => (
+export default props => (
   <Grid>
     <Card to="/complex">
       <Photo src={props.img} alt="Complex Photo" />

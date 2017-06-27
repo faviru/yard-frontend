@@ -1,7 +1,7 @@
-import React from "react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const MainFooter = styled.footer`
   padding-top: 2rem;
@@ -24,7 +24,7 @@ const Title = styled.h4`
 `;
 
 const Numbers = styled.p`
-  margin-top: ${props => props.phone ? '1rem' : '0.5rem'};
+  margin-top: ${props => (props.phone ? '1rem' : '0.5rem')};
   margin-bottom: 0;
   font-size: 0.875rem;
   line-height: 1.375rem;
@@ -91,7 +91,7 @@ export default () => (
         </Col>
         <Col lg={2} lgOffset={2}>
           <List>
-            <Line class="footer-line"></Line>
+            <Line class="footer-line" />
             <Title>Жилые комплексы</Title>
             <ComplexLink to="#">ВТБ Арена Парк</ComplexLink>
             <ComplexLink to="#">Садовые кварталы</ComplexLink>
@@ -101,7 +101,7 @@ export default () => (
         </Col>
         <Col lg={2}>
           <List>
-            <Line class="footer-line"></Line>
+            <Line class="footer-line" />
             <Title>Компания</Title>
             <ComplexLink to="#">Команда</ComplexLink>
             <ComplexLink to="#">О компании</ComplexLink>
@@ -110,7 +110,10 @@ export default () => (
       </Row>
       <Row>
         <Col lg={8} lgOffset={4}>
-          <Copyright>Любая информация, представленная на данном сайте, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями статьи 437 ГК РФ. © ООО «Ярд», 2017</Copyright>
+          <Copyright>Любая информация, представленная на данном сайте, носит
+             исключительно информационный характер и ни при каких условиях не
+              является публичной офертой, определяемой положениями статьи 437 ГК
+               РФ. © ООО «Ярд», 2017</Copyright>
         </Col>
       </Row>
     </Grid>
