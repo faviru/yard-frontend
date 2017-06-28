@@ -9,7 +9,7 @@ const AreaGuide = styled.section`
 `;
 
 const AreaMap = styled.img`
-  height: 19.5rem;
+  height: 35rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 `;
 
