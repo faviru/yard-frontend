@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 
-const Card = styled(Link) `
+const Card = styled(Link)`
   display: flex;
   margin-bottom: 3rem;
 
@@ -53,12 +53,28 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
+const formatLocation = (rawLocation) => {
+  let formatedLocation = '';
+
+  if (rawLocation.subLocalityName) {
+    formatedLocation += `${rawLocation.subLocalityName}, `;
+  }
+
+  return (formatedLocation += `${rawLocation.street}, ${rawLocation.house}`);
+};
+
 export default props => (
   <Grid>
     <Card to="/complex">
-      <Photo src={props.img} alt="Complex Photo" />
+      {props.image !== undefined &&
+        <Photo
+          src={`https://images.jqestate.ru/${props.image.id}-jqestate-512`}
+          alt="Complex Photo"
+        />}
       <Info>
-        <District>{props.district}</District>
+        <District>
+          {formatLocation(props.location)}
+        </District>
         <Name>{props.name}</Name>
         <Description>{props.children}</Description>
       </Info>
