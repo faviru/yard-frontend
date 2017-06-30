@@ -10,7 +10,7 @@ const App = () =>
     <div className="App">
       <Header />
       <Route exact path="/" component={List} />
-      <Route exact path="/complex" component={Show} />
+      <Route exact path="/complex/:id" component={Show} />
       <Footer />
     </div>
   </Router>);

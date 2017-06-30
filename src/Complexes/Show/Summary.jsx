@@ -28,7 +28,7 @@ const SubTitle = styled.small`
   color: #a9afb6;
 `;
 
-export default () => (
+export default props => (
   <Grid>
     <Wrapper>
       <Parameter>

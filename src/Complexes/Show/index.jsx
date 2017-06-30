@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { matchPath } from 'react-router';
 import styled from 'styled-components';
 import Address from './Address';
 import Gallery from './Gallery';
@@ -29,47 +30,86 @@ const Title = styled.h3`
   color: #3e4247;
 `;
 
-export default () => (
-  <Complex>
-    <Address />
-    <Gallery />
-    <Summary />
-    <Features />
-    <Description />
-    <Infrastructure />
-    <OfferCards>
-      <Grid>
-        <Row center="lg">
-          <Col lg={4}>
-            <Title>Предложения в ЖК «Полянка/44»</Title>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={4}>
-            <OfferCard
-              count={1}
-              area={{ min: 59, max: 120 }}
-              cost={{ min: 20.3, max: 84.2 }}
-            />
-          </Col>
-          <Col lg={4}>
-            <OfferCard
-              count={2}
-              area={{ min: 59, max: 120 }}
-              cost={{ min: 20.3, max: 84.2 }}
-            />
-          </Col>
-          <Col lg={4}>
-            <OfferCard
-              count={3}
-              area={{ min: 59, max: 120 }}
-              cost={{ min: 20.3, max: 84.2 }}
-            />
-          </Col>
-        </Row>
-      </Grid>
-    </OfferCards>
-    <AreaGuide />
-    <AreaFeatures />
-  </Complex>
-);
+export default class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { complexData: [] };
+  }
+
+  componentDidMount() {
+    return fetch(
+      `https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`,
+    )
+      .then(response => response.json())
+      .then((complex) => {
+        this.setState({
+          complexData: complex,
+        });
+        console.log(this.state.complexData);
+      });
+  }
+
+  render() {
+    return (
+      <Complex>
+        <Address
+          name={this.state.complexData.name}
+          detailed={this.state.complexData.location}
+        />
+        <Gallery images={this.state.complexData.images || []} />
+        <Summary />
+        <Features
+          propertiesCount={
+            (this.state.complexData.statistics || { propertiesCount: '' })
+              .propertiesCount
+          }
+          priceFrom={
+            (this.state.complexData.statistics || {
+              price: { from: { rub: 0 } },
+            }).price.from.rub
+          }
+          priceTo={
+            (this.state.complexData.statistics || { price: { to: { rub: 0 } } })
+              .price.to.rub
+          }
+        />
+        <Description />
+        <Infrastructure />
+        <OfferCards>
+          <Grid>
+            <Row center="lg">
+              <Col lg={4}>
+                <Title>Предложения в ЖК «Полянка/44»</Title>
+              </Col>
+            </Row>
+            <Row>
+              <Col lg={4}>
+                <OfferCard
+                  count={1}
+                  area={{ min: 59, max: 120 }}
+                  cost={{ min: 20.3, max: 84.2 }}
+                />
+              </Col>
+              <Col lg={4}>
+                <OfferCard
+                  count={2}
+                  area={{ min: 59, max: 120 }}
+                  cost={{ min: 20.3, max: 84.2 }}
+                />
+              </Col>
+              <Col lg={4}>
+                <OfferCard
+                  count={3}
+                  area={{ min: 59, max: 120 }}
+                  cost={{ min: 20.3, max: 84.2 }}
+                />
+              </Col>
+            </Row>
+          </Grid>
+        </OfferCards>
+        <AreaGuide />
+        <AreaFeatures />
+      </Complex>
+    );
+  }
+}

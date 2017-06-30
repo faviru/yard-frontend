@@ -65,7 +65,7 @@ const formatLocation = (rawLocation) => {
 
 export default props => (
   <Grid>
-    <Card to="/complex">
+    <Card to={`/complex/${props.id}`}>
       {props.image !== undefined &&
         <Photo
           src={`https://images.jqestate.ru/${props.image.id}-jqestate-512`}

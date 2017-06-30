@@ -37,14 +37,15 @@ const MoreBtn = styled.button`
   }
 `;
 
-export default () => (
+export default props => (
   <Gallery>
     <Wrapper>
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_1.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_2.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_5.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_3.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_4.png`} alt="House photo" />
+      {props.images.map(image => (
+        <Photo
+          src={`https://images.jqestate.ru/${image.id}-jqestate-512`}
+          alt="House photo"
+        />
+      ))}
     </Wrapper>
     <Grid>
       <MoreBtn>41 фотография</MoreBtn>

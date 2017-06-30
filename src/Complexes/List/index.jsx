@@ -27,6 +27,7 @@ export default class Index extends React.Component {
         {this.state.complexList.map(complex => (
           <Card
             key={complex.id}
+            id={complex.id}
             image={complex.images[0]}
             location={complex.location}
             name={complex.name}

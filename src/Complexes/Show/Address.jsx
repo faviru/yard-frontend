@@ -50,13 +50,23 @@ const ToFavoritesBtn = styled.button`
   }
 `;
 
-export default () => (
+const formatLocation = (rawLocation) => {
+  let formatedLocation = '';
+
+  if (rawLocation.subLocalityName) {
+    formatedLocation += `${rawLocation.subLocalityName}, `;
+  }
+
+  return (formatedLocation += `${rawLocation.street}, ${rawLocation.house}`);
+};
+
+export default props => (
   <Address>
     <Grid>
       <Wrapper>
         <Name>
-          <Title>Жилой комплекс «Полянка/44»</Title>
-          <Detailed>Район Якиманка, улица Большая Полянка, дом 44 • 119180</Detailed>
+          <Title>{props.name || ''}</Title>
+          <Detailed>{formatLocation(props.detailed || [])}</Detailed>
         </Name>
         <ToFavoritesBtn>В избранное</ToFavoritesBtn>
       </Wrapper>

@@ -33,7 +33,9 @@ export default () => (
   <MainHeader>
     <Grid>
       <Wrapper>
-        <Logo src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="Logo" />
+        <Link to="/">
+          <Logo src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="Logo" />
+        </Link>
         <Nav>
           <NavLink to="/buy">Купить</NavLink>
           <NavLink to="/rent">Снять</NavLink>
