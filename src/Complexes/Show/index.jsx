@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { matchPath } from 'react-router';
 import styled from 'styled-components';
 import Address from './Address';
 import Gallery from './Gallery';
@@ -45,7 +44,6 @@ export default class Index extends React.Component {
         this.setState({
           complexData: complex,
         });
-        console.log(this.state.complexData);
       });
   }
 

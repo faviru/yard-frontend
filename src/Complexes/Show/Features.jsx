@@ -37,7 +37,7 @@ const FeatureText = styled.dd`
 
 const formatPrice = (price) => {
   return Math.round((price / 1000000) * 10) / 10;
-}
+};
 
 export default props => (
   <Features>
