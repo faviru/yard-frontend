@@ -35,9 +35,7 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-const formatPrice = (price) => {
-  return Math.round((price / 1000000) * 10) / 10;
-};
+const formatPrice = price => Math.round((price / 1000000) * 10) / 10;
 
 export default props => (
   <Features>
