@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import type { Children } from 'react';
+import { formatLocation } from '../../utils';
 
-import type { Image } from '../types';
+import type { Location } from '../types';
 
 const Card = styled(Link)`
   display: flex;
@@ -58,18 +59,10 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
-const formatLocation = location => `${(location.subLocalityName) ?
-  `${location.subLocalityName}, ` :
-  ''}${location.street}, ${location.house}`;
-
-const getSrcImage = (image?: Image, size: number): string => (image ?
-    `https://images.jqestate.ru/${image.id}-jqestate-${size}` :
-    `http://via.placeholder.com/${size}`);
-
 type Props = {
   id: number,
-  image: Image,
-  location: any,
+  imageLink: string,
+  location: Location,
   name: string,
   children: Children
 }
@@ -78,7 +71,7 @@ export default (props: Props) => (
   <Grid>
     <Card to={`/complex/${props.id}`}>
       {<Photo
-        src={getSrcImage(props.image, 512)}
+        src={props.imageLink}
         alt="Complex Photo"
       />}
       <Info>

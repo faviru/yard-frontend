@@ -1,7 +1,10 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { getLocalImageUrl } from '../../utils';
 
 const AreaGuide = styled.section`
   padding: 4rem 0 13.625rem 0;
@@ -58,7 +61,7 @@ export default () => (
           </Wrapper>
         </Col>
         <Col lg={6}>
-          <AreaMap src={`${process.env.PUBLIC_URL}/img/polyanka-photo.png`} />
+          <AreaMap src={getLocalImageUrl('/img/polyanka-photo.png')} />
         </Col>
       </Row>
     </Grid>

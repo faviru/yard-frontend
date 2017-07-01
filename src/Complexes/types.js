@@ -13,7 +13,7 @@ export type AdjacentTerritory = {
 }
 
 export type Image = {
-  id?: string,
+  id: string,
   isPublic?: boolean
 }
 
@@ -32,7 +32,8 @@ export type Location = {
   postalCode?: number,
   regionId?: number,
   regionName?: string,
-  street?: string
+  street?: string,
+  subLocalityName?: string
 }
 
 export type PurchaseTimeConditions = {
@@ -81,12 +82,12 @@ export type Complex = {
   commissioningYear?: number,
   createdAt?: string,
   createdByUserId?: number,
-  id?: number,
-  images?: Array<Image>,
+  id: number,
+  images: Array<Image>,
   keysIssueDate?: string,
   linkedContactIds?: Array<LinkedContactId>,
-  location?: Location,
-  name?: string,
+  location: Location,
+  name: string,
   purchaseTimeConditions?: PurchaseTimeConditions,
   responsibleUser?: ResponsibleUser,
   state?: string,

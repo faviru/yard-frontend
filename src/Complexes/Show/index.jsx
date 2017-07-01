@@ -1,5 +1,8 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import type { Match } from 'react-router';
 import styled from 'styled-components';
 import Address from './Address';
 import Gallery from './Gallery';
@@ -29,38 +32,46 @@ const Title = styled.h3`
   color: #3e4247;
 `;
 
+type Props = {
+  match: Match
+}
+
 export default class Index extends React.Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
-    this.state = { complex: [] };
+    this.state = { complex: {} };
+  }
+
+  state: {
+    complex: Complex
   }
 
   componentDidMount() {
-    return fetch(
-      `https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`,
-    )
-      .then(response => response.json())
-      .then((responsejson) => {
-        this.setState({
-          complex: responsejson,
-        });
+    const id = this.props.match.params.id || 0;
+    fetch(`https://api.jqestate.ru/v1/complexes/${id}`)
+    .then(response => response.json())
+    .then((responsejson: Complex) => {
+      this.setState({
+        complex: responsejson,
       });
+    });
   }
 
   render() {
+    const { name, location = {}, images = [] } = this.state.complex;
     return (
       <Complex>
         <Address
-          name={this.state.complex.name}
-          detailed={this.state.complex.location}
+          name={name}
+          detailed={location}
         />
-        <Gallery images={this.state.complex.images || []} />
+        <Gallery images={images} />
         <Summary />
         <Features
           propertiesCount={
             this.state.complex.statistics ?
             this.state.complex.statistics.propertiesCount :
-            ''
+            0
           }
           priceFrom={
             this.state.complex.statistics ?

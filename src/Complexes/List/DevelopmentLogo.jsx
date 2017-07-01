@@ -1,5 +1,8 @@
+// @flow
+
 import React from 'react';
 import styled from 'styled-components';
+import { getLocalImageUrl } from '../../utils';
 
 const Container = styled.section`
   padding: 5rem 0;
@@ -14,6 +17,6 @@ const Logo = styled.img`
 
 export default () => (
   <Container>
-    <Logo src={`${process.env.PUBLIC_URL}/img/dev-logo.svg`} alt="Compass Development" />
+    <Logo src={getLocalImageUrl('/img/dev-logo.svg')} alt="Compass Development" />
   </Container>
 );

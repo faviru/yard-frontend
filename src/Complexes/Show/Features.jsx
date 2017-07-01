@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
@@ -35,9 +37,15 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-const formatPrice = price => Math.round((price / 1000000) * 10) / 10;
+const formatPrice = (price: number): number => Math.round((price / 1000000) * 10) / 10;
 
-export default props => (
+type Props = {
+  propertiesCount: number,
+  priceFrom: number,
+  priceTo: number
+}
+
+export default (props: Props) => (
   <Features>
     <Grid>
       <Row>

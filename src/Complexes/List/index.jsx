@@ -1,13 +1,23 @@
 // @flow
 
 import React from 'react';
+import type { Children } from 'react';
+
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
-import type { ComplexesResponse, Complex } from '../types';
+import type { ComplexesResponse, Complex, Image } from '../types';
+
+const getSrcImage = (size: number, image?: Image): string => (image ?
+  `https://images.jqestate.ru/${image.id}-jqestate-${size}` :
+  `http://via.placeholder.com/${size}`);
+
+type Props = {
+  children: Children;
+}
 
 export default class Index extends React.Component {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props);
     this.state = { complexes: [] };
   }
@@ -35,7 +45,7 @@ export default class Index extends React.Component {
           <Card
             key={complex.id}
             id={complex.id}
-            image={complex.images[0]}
+            imageLink={getSrcImage(512, complex.images && complex.images[0])}
             location={complex.location}
             name={complex.name}
           >
