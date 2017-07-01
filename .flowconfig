@@ -1,7 +1,9 @@
 [ignore]
-.*./build8.*
-.*./node_modules.*
+.*/build
+.*/node_modules
 
 [include]
 ./src
 
+[libs]
+flow-typed

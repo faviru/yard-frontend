@@ -1,17 +1,23 @@
+// @flow
+
 import React from 'react';
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
-import ComplexesResponse from '../types';
+import type { ComplexesResponse, Complex } from '../types';
 
 export default class Index extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = { complexes: [] };
   }
 
+  state: {
+    complexes: Array<Complex>
+  }
+
   componentDidMount() {
-    return fetch('https://api.jqestate.ru/v1/complexes')
+    fetch('https://api.jqestate.ru/v1/complexes')
       .then(response => response.json())
       .then((responsejson: ComplexesResponse) => {
         this.setState({

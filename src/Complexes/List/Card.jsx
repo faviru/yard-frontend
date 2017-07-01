@@ -1,7 +1,12 @@
+// @flow
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { Children } from 'react';
+
+import type { Image } from '../types';
 
 const Card = styled(Link)`
   display: flex;
@@ -57,11 +62,19 @@ const formatLocation = location => `${(location.subLocalityName) ?
   `${location.subLocalityName}, ` :
   ''}${location.street}, ${location.house}`;
 
-const getSrcImage = (image, size) => (image ?
+const getSrcImage = (image?: Image, size: number): string => (image ?
     `https://images.jqestate.ru/${image.id}-jqestate-${size}` :
     `http://via.placeholder.com/${size}`);
 
-export default props => (
+type Props = {
+  id: number,
+  image: Image,
+  location: any,
+  name: string,
+  children: Children
+}
+
+export default (props: Props) => (
   <Grid>
     <Card to={`/complex/${props.id}`}>
       {<Photo
