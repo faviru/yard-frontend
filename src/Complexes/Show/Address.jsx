@@ -50,15 +50,9 @@ const ToFavoritesBtn = styled.button`
   }
 `;
 
-const formatLocation = (rawLocation) => {
-  let formatedLocation = '';
-
-  if (rawLocation.subLocalityName) {
-    formatedLocation += `${rawLocation.subLocalityName}, `;
-  }
-
-  return (formatedLocation += `${rawLocation.street}, ${rawLocation.house}`);
-};
+const formatLocation = location => `${(location.subLocalityName) ?
+  `${location.subLocalityName}, ` :
+  ''}${location.street}, ${location.house}`;
 
 export default props => (
   <Address>
