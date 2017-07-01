@@ -1,6 +1,10 @@
+// @flow
+
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+
+import type { Image } from '../types';
 
 const Gallery = styled.section`
   position: relative;
@@ -37,7 +41,11 @@ const MoreBtn = styled.button`
   }
 `;
 
-export default props => (
+type Props = {
+  images: Array<Image>
+}
+
+export default (props: Props) => (
   <Gallery>
     <Wrapper>
       {props.images.map(image => (

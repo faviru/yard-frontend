@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -46,7 +48,18 @@ const ShowBtn = styled.button`
   border-radius: 2px;
 `;
 
-export default props => (
+type Range = {
+  min: number,
+  max: number
+}
+
+type Props = {
+  count: number,
+  cost: Range,
+  area: Range
+}
+
+export default (props: Props) => (
   <OfferCard>
     <Title>{props.count}-комнатные квартиры</Title>
     <FeatureName>Площадь</FeatureName>

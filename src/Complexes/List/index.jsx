@@ -1,18 +1,32 @@
+// @flow
+
 import React from 'react';
+import type { Children } from 'react';
+
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
+import { getExternalImageUrl } from '../../utils';
+import type { ComplexesResponse, Complex } from '../types';
+
+type Props = {
+  children: Children;
+}
 
 export default class Index extends React.Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = { complexes: [] };
   }
 
+  state: {
+    complexes: Array<Complex>
+  }
+
   componentDidMount() {
-    return fetch('https://api.jqestate.ru/v1/complexes')
+    fetch('https://api.jqestate.ru/v1/complexes?filter[state]=public')
       .then(response => response.json())
-      .then((responsejson) => {
+      .then((responsejson: ComplexesResponse) => {
         this.setState({
           complexes: responsejson.items,
         });
@@ -28,7 +42,7 @@ export default class Index extends React.Component {
           <Card
             key={complex.id}
             id={complex.id}
-            image={complex.images[0]}
+            imageLink={getExternalImageUrl(complex.images && complex.images[0])}
             location={complex.location}
             name={complex.name}
           >
