@@ -1,9 +1,15 @@
+// @flow
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import type { Children } from 'react';
+import { formatLocation } from '../../utils';
 
-const Card = styled(Link) `
+import type { Location } from '../types';
+
+const Card = styled(Link)`
   display: flex;
   margin-bottom: 3rem;
 
@@ -53,12 +59,25 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
-export default props => (
+type Props = {
+  id: number,
+  imageLink: string,
+  location: Location,
+  name: string,
+  children: Children
+}
+
+export default (props: Props) => (
   <Grid>
-    <Card to="/complex">
-      <Photo src={props.img} alt="Complex Photo" />
+    <Card to={`/complex/${props.id}`}>
+      {<Photo
+        src={props.imageLink}
+        alt="Complex Photo"
+      />}
       <Info>
-        <District>{props.district}</District>
+        <District>
+          {formatLocation(props.location)}
+        </District>
         <Name>{props.name}</Name>
         <Description>{props.children}</Description>
       </Info>

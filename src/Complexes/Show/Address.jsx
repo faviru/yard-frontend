@@ -1,6 +1,10 @@
+// @flow
+
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { formatLocation } from '../../utils';
+import type { Location } from '../types';
 
 const Address = styled.section`
   border-top: 1px solid #eaebf0;
@@ -50,13 +54,18 @@ const ToFavoritesBtn = styled.button`
   }
 `;
 
-export default () => (
+type Props = {
+  name: string,
+  detailed: Location
+}
+
+export default (props: Props) => (
   <Address>
     <Grid>
       <Wrapper>
         <Name>
-          <Title>Жилой комплекс «Полянка/44»</Title>
-          <Detailed>Район Якиманка, улица Большая Полянка, дом 44 • 119180</Detailed>
+          <Title>{props.name}</Title>
+          <Detailed>{formatLocation(props.detailed)}</Detailed>
         </Name>
         <ToFavoritesBtn>В избранное</ToFavoritesBtn>
       </Wrapper>

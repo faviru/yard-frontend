@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { getLocalImageUrl } from '../../utils';
 
 const AreaFeatures = styled.section`
   margin-top: -9.8rem;
@@ -46,7 +49,7 @@ export default () => (
     <Grid>
       <Row>
         <Col lg={6}>
-          <AreaMap src={`${process.env.PUBLIC_URL}/img/map.png`} alt="Map" />
+          <AreaMap src={getLocalImageUrl('/img/map.png')} alt="Map" />
         </Col>
         <Col lg={6}>
           <Wrapper>

@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { formatPrice } from '../../utils';
 
 const Features = styled.section`
   padding: 2rem 0 1rem 0;
@@ -35,7 +38,13 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-export default () => (
+type Props = {
+  propertiesCount: number,
+  priceFrom: number,
+  priceTo: number
+}
+
+export default (props: Props) => (
   <Features>
     <Grid>
       <Row>
@@ -47,31 +56,31 @@ export default () => (
         <Col lg={4}>
           <dl>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
             <FeatureTitle>Статус:</FeatureTitle>
             <FeatureText>Квартиры</FeatureText>
             <FeatureTitle>Цены:</FeatureTitle>
-            <FeatureText>от 5.3 до 143.5 млн</FeatureText>
+            <FeatureText>{`от ${formatPrice(props.priceFrom)} до ${formatPrice(props.priceTo)} млн`}</FeatureText>
           </dl>
         </Col>
         <Col lg={4}>
           <dl>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
           </dl>
         </Col>
         <Col lg={4}>
           <dl>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
             <FeatureTitle>Количество квартир:</FeatureTitle>
-            <FeatureText>1 503</FeatureText>
+            <FeatureText>{props.propertiesCount}</FeatureText>
           </dl>
         </Col>
       </Row>

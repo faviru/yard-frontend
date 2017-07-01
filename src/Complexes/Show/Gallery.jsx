@@ -1,6 +1,10 @@
+// @flow
+
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+
+import type { Image } from '../types';
 
 const Gallery = styled.section`
   position: relative;
@@ -37,14 +41,20 @@ const MoreBtn = styled.button`
   }
 `;
 
-export default () => (
+type Props = {
+  images: Array<Image>
+}
+
+export default (props: Props) => (
   <Gallery>
     <Wrapper>
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_1.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_2.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_5.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_3.png`} alt="House photo" />
-      <Photo src={`${process.env.PUBLIC_URL}/img/bitmap_4.png`} alt="House photo" />
+      {props.images.map(image => (
+        <Photo
+          key={image.id}
+          src={`https://images.jqestate.ru/${image.id}-jqestate-512`}
+          alt="House photo"
+        />
+      ))}
     </Wrapper>
     <Grid>
       <MoreBtn>41 фотография</MoreBtn>

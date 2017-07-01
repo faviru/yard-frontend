@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './Header';
@@ -10,7 +12,7 @@ const App = () =>
     <div className="App">
       <Header />
       <Route exact path="/" component={List} />
-      <Route exact path="/complex" component={Show} />
+      <Route exact path="/complex/:id" component={Show} />
       <Footer />
     </div>
   </Router>);

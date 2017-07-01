@@ -1,7 +1,10 @@
+// @flow
+
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { getLocalImageUrl } from './utils';
 
 const MainHeader = styled.header`
   background: #fff;
@@ -33,7 +36,9 @@ export default () => (
   <MainHeader>
     <Grid>
       <Wrapper>
-        <Logo src={`${process.env.PUBLIC_URL}/img/logo.svg`} alt="Logo" />
+        <Link to="/">
+          <Logo src={getLocalImageUrl('/img/logo.svg')} alt="Logo" />
+        </Link>
         <Nav>
           <NavLink to="/buy">Купить</NavLink>
           <NavLink to="/rent">Снять</NavLink>
