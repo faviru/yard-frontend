@@ -14,7 +14,6 @@ export default class Index extends React.Component {
     return fetch('https://api.jqestate.ru/v1/complexes')
       .then(response => response.json())
       .then((responsejson: ComplexesResponse) => {
-        console.log(responsejson);
         this.setState({
           complexes: responsejson.items,
         });
