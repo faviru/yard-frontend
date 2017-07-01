@@ -53,24 +53,21 @@ const Description = styled.p`
   color: #3e4247;
 `;
 
-const formatLocation = (rawLocation) => {
-  let formatedLocation = '';
+const formatLocation = rawLocation => `${(rawLocation.subLocalityName) ?
+  `${rawLocation.subLocalityName}, ` :
+  ''}${rawLocation.street}, ${rawLocation.house}`;
 
-  if (rawLocation.subLocalityName) {
-    formatedLocation += `${rawLocation.subLocalityName}, `;
-  }
-
-  return (formatedLocation += `${rawLocation.street}, ${rawLocation.house}`);
-};
+const setSrcImage = image => (image ?
+    `https://images.jqestate.ru/${image.id}-jqestate-512` :
+    'http://via.placeholder.com/484x350');
 
 export default props => (
   <Grid>
     <Card to={`/complex/${props.id}`}>
-      {props.image !== undefined &&
-        <Photo
-          src={`https://images.jqestate.ru/${props.image.id}-jqestate-512`}
-          alt="Complex Photo"
-        />}
+      {<Photo
+        src={setSrcImage(props.image)}
+        alt="Complex Photo"
+      />}
       <Info>
         <District>
           {formatLocation(props.location)}

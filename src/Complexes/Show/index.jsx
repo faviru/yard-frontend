@@ -32,7 +32,7 @@ const Title = styled.h3`
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { complexData: [] };
+    this.state = { complex: [] };
   }
 
   componentDidMount() {
@@ -40,9 +40,9 @@ export default class Index extends React.Component {
       `https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`,
     )
       .then(response => response.json())
-      .then((complex) => {
+      .then((responsejson) => {
         this.setState({
-          complexData: complex,
+          complex: responsejson,
         });
       });
   }
@@ -51,24 +51,25 @@ export default class Index extends React.Component {
     return (
       <Complex>
         <Address
-          name={this.state.complexData.name}
-          detailed={this.state.complexData.location}
+          name={this.state.complex.name}
+          detailed={this.state.complex.location}
         />
-        <Gallery images={this.state.complexData.images || []} />
+        <Gallery images={this.state.complex.images || []} />
         <Summary />
         <Features
           propertiesCount={
-            (this.state.complexData.statistics || { propertiesCount: '' })
+            (this.state.complex.statistics || { propertiesCount: '' })
               .propertiesCount
           }
           priceFrom={
-            (this.state.complexData.statistics || {
-              price: { from: { rub: 0 } },
-            }).price.from.rub
+            this.state.complex.statistics ?
+            this.state.complex.statistics.price.from.rub :
+            0
           }
           priceTo={
-            (this.state.complexData.statistics || { price: { to: { rub: 0 } } })
-              .price.to.rub
+            this.state.complex.statistics ?
+            this.state.complex.statistics.price.to.rub :
+            0
           }
         />
         <Description />

@@ -6,15 +6,15 @@ import Card from './Card';
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { complexList: [] };
+    this.state = { complexes: [] };
   }
 
   componentDidMount() {
     return fetch('https://api.jqestate.ru/v1/complexes')
       .then(response => response.json())
-      .then((complexes) => {
+      .then((responsejson) => {
         this.setState({
-          complexList: complexes.items,
+          complexes: responsejson.items,
         });
       });
   }
@@ -24,7 +24,7 @@ export default class Index extends React.Component {
       <div>
         <DevelopmentLogo />
         <Promo />
-        {this.state.complexList.map(complex => (
+        {this.state.complexes.map(complex => (
           <Card
             key={complex.id}
             id={complex.id}

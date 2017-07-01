@@ -42,6 +42,7 @@ export default props => (
     <Wrapper>
       {props.images.map(image => (
         <Photo
+          key={image.id}
           src={`https://images.jqestate.ru/${image.id}-jqestate-512`}
           alt="House photo"
         />
