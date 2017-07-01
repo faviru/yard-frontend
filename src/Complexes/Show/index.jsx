@@ -58,8 +58,9 @@ export default class Index extends React.Component {
         <Summary />
         <Features
           propertiesCount={
-            (this.state.complex.statistics || { propertiesCount: '' })
-              .propertiesCount
+            this.state.complex.statistics ?
+            this.state.complex.statistics.propertiesCount :
+            ''
           }
           priceFrom={
             this.state.complex.statistics ?

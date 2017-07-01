@@ -1,0 +1,7 @@
+[ignore]
+.*./build8.*
+.*./node_modules.*
+
+[include]
+./src
+

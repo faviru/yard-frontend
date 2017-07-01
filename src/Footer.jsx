@@ -9,11 +9,6 @@ const MainFooter = styled.footer`
   background: #111;
 `;
 
-// const Requisites = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `;
-
 const Title = styled.h4`
   margin: 0;
   font-size: 0.875rem;

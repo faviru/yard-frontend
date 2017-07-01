@@ -2,6 +2,7 @@ import React from 'react';
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
+import ComplexesResponse from '../types';
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class Index extends React.Component {
   componentDidMount() {
     return fetch('https://api.jqestate.ru/v1/complexes')
       .then(response => response.json())
-      .then((responsejson) => {
+      .then((responsejson: ComplexesResponse) => {
+        console.log(responsejson);
         this.setState({
           complexes: responsejson.items,
         });
