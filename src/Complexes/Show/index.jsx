@@ -47,8 +47,11 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id || 0;
-    fetch(`https://api.jqestate.ru/v1/complexes/${id}`)
+    if (!this.props.match.params.id || isNaN(parseInt(this.props.match.params.id, 10))) {
+      throw new Error('House complex identifier was not passed :(');
+    }
+
+    fetch(`https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`)
     .then(response => response.json())
     .then((responsejson: Complex) => {
       this.setState({

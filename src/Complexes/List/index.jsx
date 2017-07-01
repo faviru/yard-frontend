@@ -6,11 +6,8 @@ import type { Children } from 'react';
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
-import type { ComplexesResponse, Complex, Image } from '../types';
-
-const getSrcImage = (size: number, image?: Image): string => (image ?
-  `https://images.jqestate.ru/${image.id}-jqestate-${size}` :
-  `http://via.placeholder.com/${size}`);
+import { getExternalImageUrl } from '../../utils';
+import type { ComplexesResponse, Complex } from '../types';
 
 type Props = {
   children: Children;
@@ -27,7 +24,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.jqestate.ru/v1/complexes')
+    fetch('https://api.jqestate.ru/v1/complexes?filter[state]=public')
       .then(response => response.json())
       .then((responsejson: ComplexesResponse) => {
         this.setState({
@@ -45,7 +42,7 @@ export default class Index extends React.Component {
           <Card
             key={complex.id}
             id={complex.id}
-            imageLink={getSrcImage(512, complex.images && complex.images[0])}
+            imageLink={getExternalImageUrl(complex.images && complex.images[0])}
             location={complex.location}
             name={complex.name}
           >

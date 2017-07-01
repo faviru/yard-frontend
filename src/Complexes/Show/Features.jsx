@@ -3,6 +3,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { formatPrice } from '../../utils';
 
 const Features = styled.section`
   padding: 2rem 0 1rem 0;
@@ -36,8 +37,6 @@ const FeatureText = styled.dd`
   font-weight: 500;
   color: #3e4247;
 `;
-
-const formatPrice = (price: number): number => Math.round((price / 1000000) * 10) / 10;
 
 type Props = {
   propertiesCount: number,
