@@ -28,7 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "eslint --ext .js,.jsx src/ && flow",
     "eject": "react-scripts eject",
     "prepush": "eslint --ext .js,.jsx src/",
     "flow": "flow"
