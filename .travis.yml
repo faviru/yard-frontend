@@ -3,7 +3,7 @@ node_js:
   - 6.11
 deploy:
   provider: script
-  script: sh deploy.sh
+  script: /usr/bin/env/node deploy.js
   skip_cleanup: true
   on:
     branch: travis-integration
