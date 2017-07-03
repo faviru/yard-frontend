@@ -23,6 +23,7 @@
     "flow-typed": "^2.1.2",
     "husky": "^0.14.1",
     "install": "^0.10.1",
+    "now": "^7.1.1",
     "react-scripts": "^1.0.7"
   },
   "scripts": {
