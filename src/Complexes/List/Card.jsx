@@ -72,7 +72,7 @@ export default (props: Props) => (
     <Card to={`/complex/${props.id}`}>
       {<Photo
         src={props.imageLink}
-        alt='Complex Photo'
+        alt="Complex Photo"
       />}
       <Info>
         <District>
