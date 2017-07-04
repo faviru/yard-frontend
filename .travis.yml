@@ -1,15 +1,11 @@
 language: node_js
 node_js:
 - 6
-cache:
-  yarn: true
-  directories:
-  - node_modules
 install:
 - yarn install
 script:
-- yarn run prepush
-- yarn run flow
+- yarn lint
+- yarn flow
 deploy:
   provider: script
   skip_cleanup: true
