@@ -12,6 +12,7 @@ script:
   - yarn run flow
 deploy:
   provider: script
+  skip_cleanup: true
   script:
     - yarn build && now --public --token $NOW_TOKEN build && now alias --token $NOW_TOKEN
   on:
