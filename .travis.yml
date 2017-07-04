@@ -5,6 +5,8 @@ cache:
   yarn: true
   directories:
     - node_modules
+install:
+  - yarn install
 script:
   - yarn run prepush
   - yarn run flow
