@@ -7,6 +7,7 @@ cache:
     - node_modules
 install:
   - yarn install
+  - yarn add react-scripts
   - yarn add flow-typed
 script:
   - yarn run prepush
