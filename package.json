@@ -32,6 +32,7 @@
     "test": "eslint --ext .js,.jsx src/ && flow",
     "eject": "react-scripts eject",
     "prepush": "eslint --ext .js,.jsx src/",
-    "flow": "flow"
+    "flow": "flow",
+    "flow-typed": "flow-typed"
   }
 }

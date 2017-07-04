@@ -1,9 +1,19 @@
 language: node_js
 node_js:
-  - 6.11
+  - 6
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - yarn install
+  - yarn add flow-typed
+script:
+  - yarn run prepush
+  - yarn run flow
 deploy:
   provider: script
-  script: node deploy.js
-  skip_cleanup: true
+  script:
+    - yarn build && now --public --token $NOW_TOKEN build && now alias --token $NOW_TOKEN
   on:
     branch: travis-integration
