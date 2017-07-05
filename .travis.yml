@@ -13,6 +13,3 @@ deploy:
   - yarn build && now --public --token $NOW_TOKEN build && now alias --token $NOW_TOKEN
   on:
     branch: master
-env:
-  matrix:
-    secure: WVkGcmoID5tgeSW4sSYq+4eKYKfKvSiRlfGNhJtf6quiHZZjiN/0Q9vKR9zm281+lFmWKT68T5tWJoB9Gn3msD23lLKrDuDdnbNSGnEu13ji2y6kEbFFaRSGvWg60MhGrbzNxIUWZaIqnEu7tPXbZXFxHoi7Ka6c8DuR13+vbbtkQQbuwjrIejKxfH/Rv5F6ycMqorumpCOu1FVqnPrNOJMElFc6OKVvUmG0lyTX0m62AaHYXydsA4g0unrvQ35F0kmdTRbeDH4ubrvj1FnjjjRGVBGuaklafNqYhx4XyVTOAWwdCg9Dl1MEUE4MAjTVyGb9L1DHhDfc6EGWEBrpRSYpAgZ6P/PdkwzC0WvKWu4K5qBkl0vtWgv+GzJyIfP3g+VZuwXrnhXmInnWabzf89hCUlQl5Tg7Bko5mE5AVEH0Rr6QyOYKAxyEcFaoUHqt6YWuO8nTPjr3FZPaZw3SKv5/srw44XhPrh2/ZU0U/7c4QwVu8fiwyBLZFnGYNUzEoNruBXklh+0rrybrm6qEbbn4gtr7FYhdaCpapsVNKzaQTLirkO8YAdJQx+mLAJtPQ24KNSDIBed5i55yICTq5n1UqATYCgb6E48DPQIzw+Gy/zyHI7dUu+beegWy5NiI9mkTpetf7z5DGV4OUk4+u0dLuyYJB8T8FfMlUWF7wRM=
