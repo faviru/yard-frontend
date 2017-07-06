@@ -105,7 +105,8 @@ export default (props: Props) => (
             <FeatureTitle>Начало строительства</FeatureTitle>
             <FeatureText>{quarters[props.startQuarter]} квартал {props.startYear} года</FeatureText>
             <FeatureTitle>Конец строительства</FeatureTitle>
-            <FeatureText>{quarters[props.commissioningQuarter]} квартал {props.commissioningYear} года</FeatureText>
+            <FeatureText>{quarters[props.commissioningQuarter]}
+              квартал {props.commissioningYear} года</FeatureText>
             <FeatureTitle>Наземная парковка</FeatureTitle>
             <FeatureText>{(props.undergroundGarages) ? `${props.undergroundGarages} м/м` : 'Нет'}</FeatureText>
             <FeatureTitle>Подземная парковка</FeatureTitle>
