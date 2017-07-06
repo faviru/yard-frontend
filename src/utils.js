@@ -2,7 +2,7 @@
 import type { Image, Location } from './Complexes/types';
 
 export function formatLocation(location: Location): string {
-  return [location.subLocalityName, location.street, location.house]
+  return [location.subLocalityName, location.street, location.house, location.postalCode]
   .filter(part => part !== undefined)
   .join(', ');
 }
@@ -11,10 +11,10 @@ export function getLocalImageUrl(relativeUrl: string): string {
   return `${process.env.PUBLIC_URL || ''}${relativeUrl}`;
 }
 
-export function getExternalImageUrl(image?: Image, size: number = 512): string {
+export function getExternalImageUrl(image?: Image, height: number = 512): string {
   return image ?
-  `https://images.jqestate.ru/${image.id}-jqestate-${size}` :
-  `http://via.placeholder.com/${size}`;
+  `https://s3-eu-central-1.amazonaws.com/yard-images/${image.id}-${height}` :
+  `http://via.placeholder.com/${height}`;
 }
 
 export function formatPrice(price: number): number {

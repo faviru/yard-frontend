@@ -51,7 +51,7 @@ export default (props: Props) => (
       {props.images.map(image => (
         <Photo
           key={image.id}
-          src={`https://images.jqestate.ru/${image.id}-jqestate-512`}
+          src={`https://s3-eu-central-1.amazonaws.com/yard-images/${image.id}-512`}
           alt="House photo"
         />
       ))}

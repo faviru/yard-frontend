@@ -24,7 +24,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.jqestate.ru/v1/complexes?filter[state]=public')
+    fetch(encodeURI('https:///yard.moscow/api/v1/complexes'))
       .then(response => response.json())
       .then((responsejson: ComplexesResponse) => {
         this.setState({
@@ -42,7 +42,7 @@ export default class Index extends React.Component {
           <Card
             key={complex.id}
             id={complex.id}
-            imageLink={getExternalImageUrl(complex.images && complex.images[0])}
+            imageLink={getExternalImageUrl(complex.image)}
             location={complex.location}
             name={complex.name}
           >

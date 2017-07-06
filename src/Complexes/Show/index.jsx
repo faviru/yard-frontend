@@ -51,7 +51,7 @@ export default class Index extends React.Component {
       throw new Error('House complex identifier was not passed :(');
     }
 
-    fetch(`https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`)
+    fetch(encodeURI(`https:///yard.moscow/api/v1/complexes/${this.props.match.params.id}`))
     .then(response => response.json())
     .then((responsejson: Complex) => {
       this.setState({
@@ -68,12 +68,82 @@ export default class Index extends React.Component {
           name={name}
           detailed={location}
         />
-        <Gallery images={images} />
+        {images.lengtn && <Gallery images={images} />}
         <Summary />
         <Features
           propertiesCount={
             this.state.complex.statistics ?
             this.state.complex.statistics.propertiesCount :
+            0
+          }
+          propertyKind={
+            this.state.complex.details ?
+            this.state.complex.details.propertyKind :
+            ''
+          }
+          security={
+            this.state.complex.details ?
+            this.state.complex.details.security :
+            ''
+          }
+          constructionKind={
+            this.state.complex.details ?
+            this.state.complex.details.constructionKind :
+            ''
+          }
+          areaFrom={
+            this.state.complex.statistics ?
+            this.state.complex.statistics.totalArea.from :
+            0
+          }
+          areaTo={
+            this.state.complex.statistics ?
+            this.state.complex.statistics.totalArea.to :
+            0
+          }
+          cellHeightFrom={
+            this.state.complex.details ?
+            this.state.complex.details.ceilHeight.from :
+            0
+          }
+          cellHeightTo={
+            this.state.complex.details ?
+            this.state.complex.details.ceilHeight.to :
+            0
+          }
+          maintenanceCosts={
+            this.state.complex.details ?
+            this.state.complex.details.maintenanceCosts :
+            0
+          }
+          startQuarter={
+            this.state.complex.details ?
+            this.state.complex.details.startQuarter :
+            0
+          }
+          startYear={
+            this.state.complex.details ?
+            this.state.complex.details.startYear :
+            0
+          }
+          commissioningQuarter={
+            this.state.complex.details ?
+            this.state.complex.details.commissioningQuarter :
+            0
+          }
+          commissioningYear={
+            this.state.complex.details ?
+            this.state.complex.details.commissioningYear :
+            0
+          }
+          parkings={
+            this.state.complex.details ?
+            this.state.complex.details.parkings :
+            0
+          }
+          undergroundGarages={
+            this.state.complex.details ?
+            this.state.complex.details.undergroundGarages :
             0
           }
           priceFrom={
