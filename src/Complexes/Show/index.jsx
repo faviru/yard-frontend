@@ -4,6 +4,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import type { Match } from 'react-router';
 import styled from 'styled-components';
+import get from '../../api';
 import Address from './Address';
 import Gallery from './Gallery';
 import Summary from './Summary';
@@ -51,8 +52,7 @@ export default class Index extends React.Component {
       throw new Error('House complex identifier was not passed :(');
     }
 
-    fetch(encodeURI(`https:///yard.moscow/api/v1/complexes/${this.props.match.params.id}`))
-    .then(response => response.json())
+    get(`/complexes/${this.props.match.params.id}`)
     .then((responsejson: Complex) => {
       this.setState({
         complex: responsejson,
@@ -61,101 +61,50 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const { name, location = {}, images = [] } = this.state.complex;
+    const { name, location = { subwayIds: [] }, images = [], statistics = {}, details = {} } = this.state.complex;
+    const {
+      area = {},
+      price = { from: {}, to: {} },
+    } = statistics;
+
+    const {
+      maintenanceCosts = 0,
+      ceilHeight = {},
+      propertiesCount = 0,
+      propertyKind = 'flat',
+      security = 'guarded',
+      constructionKind = 'brick',
+      startQuarter = 0,
+      startYear = 0,
+      commissioningQuarter = 0,
+      commissioningYear = 0,
+      parkings = 0,
+      undergroundGarages = 0,
+    } = details;
+
     return (
       <Complex>
         <Address
           name={name}
           detailed={location}
         />
-        {images.lengtn && <Gallery images={images} />}
+        {images.length && <Gallery images={images} />}
         <Summary />
         <Features
-          propertiesCount={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.propertiesCount :
-            0
-          }
-          propertyKind={
-            this.state.complex.details ?
-            this.state.complex.details.propertyKind :
-            ''
-          }
-          security={
-            this.state.complex.details ?
-            this.state.complex.details.security :
-            ''
-          }
-          constructionKind={
-            this.state.complex.details ?
-            this.state.complex.details.constructionKind :
-            ''
-          }
-          areaFrom={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.totalArea.from :
-            0
-          }
-          areaTo={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.totalArea.to :
-            0
-          }
-          cellHeightFrom={
-            this.state.complex.details ?
-            this.state.complex.details.ceilHeight.from :
-            0
-          }
-          cellHeightTo={
-            this.state.complex.details ?
-            this.state.complex.details.ceilHeight.to :
-            0
-          }
-          maintenanceCosts={
-            this.state.complex.details ?
-            this.state.complex.details.maintenanceCosts :
-            0
-          }
-          startQuarter={
-            this.state.complex.details ?
-            this.state.complex.details.startQuarter :
-            0
-          }
-          startYear={
-            this.state.complex.details ?
-            this.state.complex.details.startYear :
-            0
-          }
-          commissioningQuarter={
-            this.state.complex.details ?
-            this.state.complex.details.commissioningQuarter :
-            0
-          }
-          commissioningYear={
-            this.state.complex.details ?
-            this.state.complex.details.commissioningYear :
-            0
-          }
-          parkings={
-            this.state.complex.details ?
-            this.state.complex.details.parkings :
-            0
-          }
-          undergroundGarages={
-            this.state.complex.details ?
-            this.state.complex.details.undergroundGarages :
-            0
-          }
-          priceFrom={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.price.from.rub :
-            0
-          }
-          priceTo={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.price.to.rub :
-            0
-          }
+          propertiesCount={propertiesCount}
+          propertyKind={propertyKind}
+          security={security}
+          constructionKind={constructionKind}
+          area={area}
+          ceilHeight={ceilHeight}
+          maintenanceCosts={maintenanceCosts}
+          startQuarter={startQuarter}
+          startYear={startYear}
+          commissioningQuarter={commissioningQuarter}
+          commissioningYear={commissioningYear}
+          parkings={parkings}
+          undergroundGarages={undergroundGarages}
+          price={{ from: price.from.rub, to: price.to.rub }}
         />
         <Description />
         <Infrastructure />

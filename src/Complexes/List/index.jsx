@@ -6,6 +6,7 @@ import type { Children } from 'react';
 import DevelopmentLogo from './DevelopmentLogo';
 import Promo from './Promo';
 import Card from './Card';
+import get from '../../api';
 import { getExternalImageUrl } from '../../utils';
 import type { ComplexesResponse, Complex } from '../types';
 
@@ -24,8 +25,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
-    fetch(encodeURI('https:///yard.moscow/api/v1/complexes'))
-      .then(response => response.json())
+    get('/complexes')
       .then((responsejson: ComplexesResponse) => {
         this.setState({
           complexes: responsejson.items,

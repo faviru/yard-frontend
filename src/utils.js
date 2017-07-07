@@ -17,6 +17,6 @@ export function getExternalImageUrl(image?: Image, height: number = 512): string
   `http://via.placeholder.com/${height}`;
 }
 
-export function formatPrice(price: number): number {
-  return Math.round((price / 1000000) * 10) / 10;
+export function formatPrice(price?: number): ?number {
+  return price && Math.round((price / 1000000) * 10) / 10;
 }

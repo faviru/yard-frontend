@@ -4,7 +4,8 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { formatPrice } from '../../utils';
-import { kinds, securityKinds, constructionKinds, quarters } from './../complexes-dictionaries';
+import { kinds, securityKinds, constructionKinds, quarters } from './../dictionaries';
+import type { Area } from '../types';
 
 const Features = styled.section`
   padding: 2rem 0 1rem 0;
@@ -39,24 +40,39 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-export function cellHeight(from: number, to: number): number {
-  if (from === to || to === 0) {
-    return `${from.toFixed(2)} м`;
+export function ceilHeight(from: ?number, to: ?number): string {
+  const formattedFrom = from && from.toFixed(2);
+  const formattedTo = to && to.toFixed(2);
+  const singleValue = formattedFrom || formattedTo;
+
+  if (formattedFrom && formattedTo) {
+    return `${formattedFrom || ''} - ${formattedTo || ''} м`;
+  } else
+  if (singleValue != null) {
+    return `${singleValue} м`;
   }
-  return `${from.toFixed(2)} - ${to.toFixed(2)} м`;
+
+  return 'Не указана';
+}
+
+function getFormattedRange(
+  from: ?number, to: ?number, units: string, precision: number = 1): string {
+  const formattedFrom = from && `от ${from.toFixed(precision)} `;
+  const formattedTo = to && `до ${to.toFixed(precision)} `;
+
+  return from || to ?
+    `${formattedFrom || ''}${formattedTo || ''}${units}` :
+    'Не указано';
 }
 
 type Props = {
   propertyKind: string,
   propertiesCount: number,
-  priceFrom: number,
-  priceTo: number,
+  price: { from?: number, to?: number },
   constructionKind: string,
   security: string,
-  areaFrom: number,
-  areaTo: number,
-  cellHeightFrom: number,
-  cellHeightTo: number,
+  area: Area,
+  ceilHeight: { from?: number, to?: number },
   maintenanceCosts: number,
   startQuarter: number,
   startYear: number,
@@ -83,7 +99,7 @@ export default (props: Props) => (
             <FeatureTitle>Статус</FeatureTitle>
             <FeatureText>{kinds[props.propertyKind || 'flat']}</FeatureText>
             <FeatureTitle>Цены</FeatureTitle>
-            <FeatureText>{`от ${formatPrice(props.priceFrom)} до ${formatPrice(props.priceTo)} млн`}</FeatureText>
+            <FeatureText>{getFormattedRange(formatPrice(props.price.from), formatPrice(props.price.to), 'млн')}</FeatureText>
             <FeatureTitle>Безопасность</FeatureTitle>
             <FeatureText>{securityKinds[props.security]}</FeatureText>
           </dl>
@@ -93,9 +109,9 @@ export default (props: Props) => (
             <FeatureTitle>Конструкция корпусов</FeatureTitle>
             <FeatureText>{constructionKinds[props.constructionKind]}</FeatureText>
             <FeatureTitle>Площадь</FeatureTitle>
-            <FeatureText>{`от ${props.areaFrom.toFixed(1)} до ${props.areaTo.toFixed(1)} м²`}</FeatureText>
+            <FeatureText>{getFormattedRange(props.area.from, props.area.to, 'м²')}</FeatureText>
             <FeatureTitle>Высота потолков</FeatureTitle>
-            <FeatureText>{cellHeight(props.cellHeightFrom, props.cellHeightTo)}</FeatureText>
+            <FeatureText>{ceilHeight(props.ceilHeight.from, props.ceilHeight.to)}</FeatureText>
             <FeatureTitle>Обслуживание</FeatureTitle>
             <FeatureText>{props.maintenanceCosts} руб / м² / месяц</FeatureText>
           </dl>
