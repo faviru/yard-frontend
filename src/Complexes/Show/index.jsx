@@ -61,7 +61,8 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const { name, location = { subwayIds: [] }, images = [], statistics = {}, details = {} } = this.state.complex;
+    const { name, location = { subwayIds: [] },
+    images = [], statistics = {}, details = {} } = this.state.complex;
     const {
       area = {},
       price = { from: {}, to: {} },
