@@ -1,11 +1,10 @@
 // @flow
 
 import React from 'react';
-import ModalGallery from './ModalGallery';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import ModalGallery from './ModalGallery';
 import { getPublicImageUrl } from '../../utils';
-
 import type { Image } from '../types';
 
 const GalleryWrapper = styled.section`

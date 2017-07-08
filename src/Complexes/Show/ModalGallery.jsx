@@ -3,6 +3,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
+
 import { getPublicImageUrl } from '../../utils';
 
 const Image = styled.img`
