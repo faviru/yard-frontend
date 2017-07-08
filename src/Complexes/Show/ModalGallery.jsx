@@ -43,6 +43,8 @@ export default class ModalGallery extends React.Component {
     this.state = {};
   }
 
+  state: {}
+
   render() {
     const isOpen = this.props.currentRequestedImageId !== undefined;
     return (

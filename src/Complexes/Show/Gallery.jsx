@@ -64,6 +64,10 @@ export default class Gallery extends React.Component {
     this.state = { clickedImageId: undefined };
   }
 
+  state: {
+    clickedImageId: ?number,
+  }
+
   onImageClick(id: number) {
     this.setState({ clickedImageId: id });
   }
