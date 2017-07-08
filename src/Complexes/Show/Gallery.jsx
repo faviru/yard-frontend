@@ -1,13 +1,14 @@
 // @flow
 
 import React from 'react';
+import ModalGallery from './ModalGallery';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { getPublicImageUrl } from '../../utils';
 
 import type { Image } from '../types';
 
-const Gallery = styled.section`
+const GalleryWrapper = styled.section`
   position: relative;
   margin: 0 auto;
 `;
@@ -58,19 +59,38 @@ type Props = {
   images: Array<Image>
 }
 
-export default (props: Props) => (
-  <Gallery>
-    <Wrapper>
-      {props.images.map(image => (
-        <Photo
-          key={image.id}
-          src={getPublicImageUrl(image.id)}
-          alt="House photo"
+export default class Gallery extends React.Component {
+  constructor(props: Props) {
+    super(props);
+    this.state = { clickedImageId: undefined };
+  }
+
+  onImageClick(id: number) {
+    this.setState({ clickedImageId: id });
+  }
+
+  render() {
+    return (
+      <GalleryWrapper>
+        <Wrapper>
+          {this.props.images.map((image, index) => (
+            <Photo
+              key={image.id}
+              src={getPublicImageUrl(image.id)}
+              alt="House photo"
+              onClick={() => this.onImageClick(index)}
+            />
+          ))}
+        </Wrapper>
+        {this.props.images.length &&
+          <Grid>
+            <MoreBtn>{formatPhotosCount(this.props.images.length)}</MoreBtn>
+          </Grid>}
+        <ModalGallery
+          currentRequestedImageId={this.state.clickedImageId}
+          images={this.props.images.map(i => i.id)}
         />
-      ))}
-    </Wrapper>
-    <Grid>
-      <MoreBtn>{formatPhotosCount(props.images.length)}</MoreBtn>
-    </Grid>
-  </Gallery>
-);
+      </GalleryWrapper>
+    );
+  }
+}
