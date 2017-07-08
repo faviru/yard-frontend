@@ -142,7 +142,7 @@ export default class Index extends React.Component {
           </Grid>
         </OfferCards>
         <AreaGuide />
-        <AreaFeatures />
+        <AreaFeatures location={location} />
       </Complex>
     );
   }

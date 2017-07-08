@@ -18,12 +18,12 @@ export type LinkedContactId = {
 }
 
 export type Location = {
-  latitude?: string,
+  latitude?: number,
   localityId?: number,
   subLocalityName?: string,
   subwayIds: Array<any>,
   countryName?: string,
-  longitude?: string,
+  longitude?: number,
   postalCode?: number,
   countryId?: number,
   subLocalityName?: number,

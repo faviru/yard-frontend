@@ -3,14 +3,15 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import { getLocalImageUrl } from '../../utils';
+import Map from './Map';
+import type { Location } from '../types';
 
 const AreaFeatures = styled.section`
   margin-top: -9.8rem;
   padding-bottom: 4rem;
 `;
 
-const AreaMap = styled.img`
+const AreaMap = styled.div`
   height: 19.5rem;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 `;
@@ -44,12 +45,18 @@ const FeatureLocation = styled.small`
   margin: 0.5rem 0 0 0;
 `;
 
-export default () => (
+type Props = {
+  location: Location
+}
+
+export default (props: Props) => (
   <AreaFeatures>
     <Grid>
       <Row>
         <Col lg={6}>
-          <AreaMap src={getLocalImageUrl('/img/map.png')} alt="Map" />
+          <AreaMap>
+            <Map location={props.location} />
+          </AreaMap>
         </Col>
         <Col lg={6}>
           <Wrapper>
