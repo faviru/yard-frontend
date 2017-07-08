@@ -3,6 +3,7 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import { getPublicImageUrl } from '../../utils';
 
 import type { Image } from '../types';
 
@@ -41,6 +42,18 @@ const MoreBtn = styled.button`
   }
 `;
 
+function formatPhotosCount(count) {
+  if (count === 1) {
+    return '1 фотография';
+  }
+
+  if (count <= 4) {
+    return `${count} фотографии`;
+  }
+
+  return `${count} фотографий`;
+}
+
 type Props = {
   images: Array<Image>
 }
@@ -51,13 +64,13 @@ export default (props: Props) => (
       {props.images.map(image => (
         <Photo
           key={image.id}
-          src={`https://s3-eu-central-1.amazonaws.com/yard-images/${image.id}-512`}
+          src={getPublicImageUrl(image.id)}
           alt="House photo"
         />
       ))}
     </Wrapper>
     <Grid>
-      <MoreBtn>41 фотография</MoreBtn>
+      <MoreBtn>{formatPhotosCount(props.images.length)}</MoreBtn>
     </Grid>
   </Gallery>
 );
