@@ -3,7 +3,7 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import pluralize from 'pluralize-ru';
+import Pluralizer from './Pluralizer';
 import { getExternalImageUrl } from '../../utils';
 import type { Complex } from '../types';
 
@@ -42,12 +42,8 @@ const MoreBtn = styled.button`
   }
 `;
 
-type Props = {
-  complex: Complex,
-}
-
-export default (props: Props) => {
-  const { images = [] } = props.complex;
+export default (props: Complex) => {
+  const { images = [] } = props;
   return (
     <GalleryWrapper>
       <Wrapper>
@@ -61,7 +57,15 @@ export default (props: Props) => {
       </Wrapper>
       {images &&
         <Grid>
-          <MoreBtn>{pluralize(images.length, '', 'фотография', 'фотографии', 'фотографий')}</MoreBtn>
+          <MoreBtn>
+            {`${images.length} `}
+            <Pluralizer
+              count={images.length}
+              one={'фотография'}
+              four={'фотографии'}
+              many={'фотографий'}
+            />
+          </MoreBtn>
         </Grid>}
     </GalleryWrapper>
   );

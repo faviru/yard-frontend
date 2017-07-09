@@ -89,7 +89,7 @@ export default class Index extends React.Component {
           name={name}
           detailed={location}
         />
-        <Gallery complex={this.state.complex} />
+        <Gallery {...this.state.complex} />
         <Summary />
         <Features
           propertiesCount={propertiesCount}
