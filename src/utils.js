@@ -17,10 +17,6 @@ export function getExternalImageUrl(image?: Image, height: number = 512): string
   `http://via.placeholder.com/${height}`;
 }
 
-export function getPublicImageUrl(id: string, height: number = 512): string {
-  return `https://s3-eu-central-1.amazonaws.com/yard-images/${id}-${height}`;
-}
-
 export function formatPrice(price?: number): ?number {
   return price && Math.round((price / 1000000) * 10) / 10;
 }

@@ -62,7 +62,7 @@ export default class Index extends React.Component {
 
   render() {
     const { name, location = { subwayIds: [] },
-    images = [], statistics = {}, details = {} } = this.state.complex;
+    statistics = {}, details = {} } = this.state.complex;
     const {
       area = {},
       price = { from: {}, to: {} },
@@ -89,7 +89,7 @@ export default class Index extends React.Component {
           name={name}
           detailed={location}
         />
-        {images.length && <Gallery images={images} />}
+        <Gallery complex={this.state.complex} />
         <Summary />
         <Features
           propertiesCount={propertiesCount}

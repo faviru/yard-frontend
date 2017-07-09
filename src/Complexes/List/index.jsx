@@ -25,7 +25,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
-    get('/complexes')
+    get('/complexes?filte[state]=public')
       .then((responsejson: ComplexesResponse) => {
         this.setState({
           complexes: responsejson.items,

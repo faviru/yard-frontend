@@ -57,12 +57,13 @@ export function ceilHeight(from: ?number, to: ?number): string {
 
 function getFormattedRange(
   from: ?number, to: ?number, units: string, precision: number = 1): string {
-  const formattedFrom = from && `от ${from.toFixed(precision)} `;
-  const formattedTo = to && `до ${to.toFixed(precision)} `;
+  if (!from && !to) {
+    return 'Не указано';
+  }
+  const formattedFrom = from ? `от ${from.toFixed(precision)} ` : '';
+  const formattedTo = to ? `до ${to.toFixed(precision)} ` : '';
 
-  return from || to ?
-    `${formattedFrom || ''}${formattedTo || ''}${units}` :
-    'Не указано';
+  return `${formattedFrom}${formattedTo}${units}`;
 }
 
 type Props = {

@@ -3,9 +3,9 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import ModalGallery from './ModalGallery';
-import { getPublicImageUrl } from '../../utils';
-import type { Image } from '../types';
+import pluralize from 'pluralize-ru';
+import { getExternalImageUrl } from '../../utils';
+import type { Complex } from '../types';
 
 const GalleryWrapper = styled.section`
   position: relative;
@@ -42,58 +42,27 @@ const MoreBtn = styled.button`
   }
 `;
 
-function formatPhotosCount(count) {
-  if (count === 1) {
-    return '1 фотография';
-  }
-
-  if (count <= 4) {
-    return `${count} фотографии`;
-  }
-
-  return `${count} фотографий`;
-}
-
 type Props = {
-  images: Array<Image>
+  complex: Complex,
 }
 
-export default class Gallery extends React.Component {
-  constructor(props: Props) {
-    super(props);
-    this.state = { clickedImageId: undefined };
-  }
-
-  state: {
-    clickedImageId: ?number,
-  }
-
-  onImageClick(id: number) {
-    this.setState({ clickedImageId: id });
-  }
-
-  render() {
-    return (
-      <GalleryWrapper>
-        <Wrapper>
-          {this.props.images.map((image, index) => (
-            <Photo
-              key={image.id}
-              src={getPublicImageUrl(image.id)}
-              alt="House photo"
-              onClick={() => this.onImageClick(index)}
-            />
-          ))}
-        </Wrapper>
-        {this.props.images.length &&
-          <Grid>
-            <MoreBtn>{formatPhotosCount(this.props.images.length)}</MoreBtn>
-          </Grid>}
-        <ModalGallery
-          currentRequestedImageId={this.state.clickedImageId}
-          images={this.props.images.map(i => i.id)}
-        />
-      </GalleryWrapper>
-    );
-  }
-}
+export default (props: Props) => {
+  const { images = [] } = props.complex;
+  return (
+    <GalleryWrapper>
+      <Wrapper>
+        {images && images.map(image => (
+          <Photo
+            key={image.id}
+            src={getExternalImageUrl(image)}
+            alt={image.id}
+          />
+        ))}
+      </Wrapper>
+      {images &&
+        <Grid>
+          <MoreBtn>{pluralize(images.length, '', 'фотография', 'фотографии', 'фотографий')}</MoreBtn>
+        </Grid>}
+    </GalleryWrapper>
+  );
+};

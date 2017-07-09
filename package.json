@@ -5,6 +5,7 @@
   "dependencies": {
     "mapbox-gl": "^0.38.0",
     "normalize.css": "^7.0.0",
+    "pluralize-ru": "^1.0.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-flexbox-grid": "^1.1.3",
