@@ -5,7 +5,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import { formatPrice } from '../../utils';
 import { kinds, securityKinds, constructionKinds, quarters } from './../dictionaries';
-import type { Area } from '../types';
+import type { Complex } from '../types';
 
 const Features = styled.section`
   padding: 2rem 0 1rem 0;
@@ -40,7 +40,7 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-export function ceilHeight(from: ?number, to: ?number): string {
+export function getFormatCeilHeight(from: ?number, to: ?number): string {
   const formattedFrom = from && from.toFixed(2);
   const formattedTo = to && to.toFixed(2);
   const singleValue = formattedFrom || formattedTo;
@@ -66,71 +66,80 @@ function getFormattedRange(
   return `${formattedFrom}${formattedTo}${units}`;
 }
 
-type Props = {
-  propertyKind: string,
-  propertiesCount: number,
-  price: { from?: number, to?: number },
-  constructionKind: string,
-  security: string,
-  area: Area,
-  ceilHeight: { from?: number, to?: number },
-  maintenanceCosts: number,
-  startQuarter: number,
-  startYear: number,
-  maintenanceCosts: number,
-  commissioningQuarter: number,
-  commissioningYear: number,
-  undergroundGarages: number,
-  parkings: number
-}
+export default (props: Complex) => {
+  const {
+    statistics = {},
+    details = {},
+  } = props;
 
-export default (props: Props) => (
-  <Features>
-    <Grid>
-      <Row>
-        <Col lg={2}>
-          <Title>Характеристики</Title>
-        </Col>
-      </Row>
-      <Row>
-        <Col lg={4}>
-          <dl>
-            <FeatureTitle>Количество квартир</FeatureTitle>
-            <FeatureText>{props.propertiesCount}</FeatureText>
-            <FeatureTitle>Статус</FeatureTitle>
-            <FeatureText>{kinds[props.propertyKind || 'flat']}</FeatureText>
-            <FeatureTitle>Цены</FeatureTitle>
-            <FeatureText>{getFormattedRange(formatPrice(props.price.from), formatPrice(props.price.to), 'млн')}</FeatureText>
-            <FeatureTitle>Безопасность</FeatureTitle>
-            <FeatureText>{securityKinds[props.security]}</FeatureText>
-          </dl>
-        </Col>
-        <Col lg={4}>
-          <dl>
-            <FeatureTitle>Конструкция корпусов</FeatureTitle>
-            <FeatureText>{constructionKinds[props.constructionKind]}</FeatureText>
-            <FeatureTitle>Площадь</FeatureTitle>
-            <FeatureText>{getFormattedRange(props.area.from, props.area.to, 'м²')}</FeatureText>
-            <FeatureTitle>Высота потолков</FeatureTitle>
-            <FeatureText>{ceilHeight(props.ceilHeight.from, props.ceilHeight.to)}</FeatureText>
-            <FeatureTitle>Обслуживание</FeatureTitle>
-            <FeatureText>{props.maintenanceCosts} руб / м² / месяц</FeatureText>
-          </dl>
-        </Col>
-        <Col lg={4}>
-          <dl>
-            <FeatureTitle>Начало строительства</FeatureTitle>
-            <FeatureText>{quarters[props.startQuarter]} квартал {props.startYear} года</FeatureText>
-            <FeatureTitle>Конец строительства</FeatureTitle>
-            <FeatureText>{quarters[props.commissioningQuarter]}
-              квартал {props.commissioningYear} года</FeatureText>
-            <FeatureTitle>Наземная парковка</FeatureTitle>
-            <FeatureText>{(props.undergroundGarages) ? `${props.undergroundGarages} м/м` : 'Нет'}</FeatureText>
-            <FeatureTitle>Подземная парковка</FeatureTitle>
-            <FeatureText>{(props.parkings) ? `${props.parkings} м/м` : 'Нет'}</FeatureText>
-          </dl>
-        </Col>
-      </Row>
-    </Grid>
-  </Features>
-);
+  const {
+    totalArea = {},
+    price = { from: {}, to: {} },
+    propertiesCount = 0,
+  } = statistics;
+
+  const {
+    maintenanceCosts = 0,
+    ceilHeight = {},
+    propertyKind = 'flat',
+    security = 'guarded',
+    constructionKind = 'brick',
+    startQuarter = 0,
+    startYear = 0,
+    commissioningQuarter = 0,
+    commissioningYear = 0,
+    parkings = 0,
+    undergroundGarages = 0,
+  } = details;
+
+  return (
+    <Features>
+      <Grid>
+        <Row>
+          <Col lg={2}>
+            <Title>Характеристики</Title>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={4}>
+            <dl>
+              <FeatureTitle>Количество квартир</FeatureTitle>
+              <FeatureText>{propertiesCount}</FeatureText>
+              <FeatureTitle>Статус</FeatureTitle>
+              <FeatureText>{kinds[propertyKind || 'flat']}</FeatureText>
+              <FeatureTitle>Цены</FeatureTitle>
+              <FeatureText>{getFormattedRange(formatPrice(price.from.rub), formatPrice(price.to.rub), 'млн')}</FeatureText>
+              <FeatureTitle>Безопасность</FeatureTitle>
+              <FeatureText>{securityKinds[security]}</FeatureText>
+            </dl>
+          </Col>
+          <Col lg={4}>
+            <dl>
+              <FeatureTitle>Конструкция корпусов</FeatureTitle>
+              <FeatureText>{constructionKinds[constructionKind]}</FeatureText>
+              <FeatureTitle>Площадь</FeatureTitle>
+              <FeatureText>{getFormattedRange(totalArea.from, totalArea.to, 'м²')}</FeatureText>
+              <FeatureTitle>Высота потолков</FeatureTitle>
+              <FeatureText>{getFormatCeilHeight(ceilHeight.from, ceilHeight.to)}</FeatureText>
+              <FeatureTitle>Обслуживание</FeatureTitle>
+              <FeatureText>{maintenanceCosts} руб / м² / месяц</FeatureText>
+            </dl>
+          </Col>
+          <Col lg={4}>
+            <dl>
+              <FeatureTitle>Начало строительства</FeatureTitle>
+              <FeatureText>{quarters[startQuarter]} квартал {startYear} года</FeatureText>
+              <FeatureTitle>Конец строительства</FeatureTitle>
+              <FeatureText>{quarters[commissioningQuarter]}
+                квартал {commissioningYear} года</FeatureText>
+              <FeatureTitle>Наземная парковка</FeatureTitle>
+              <FeatureText>{(undergroundGarages) ? `${undergroundGarages} м/м` : 'Нет'}</FeatureText>
+              <FeatureTitle>Подземная парковка</FeatureTitle>
+              <FeatureText>{(parkings) ? `${parkings} м/м` : 'Нет'}</FeatureText>
+            </dl>
+          </Col>
+        </Row>
+      </Grid>
+    </Features>
+  );
+};

@@ -12,12 +12,12 @@ const Pluralizer = styled.div`
 type Props = {
   count: number,
   one: string,
-  four: string,
+  some: string,
   many: string
 }
 
 export default (props: Props) => (
   <Pluralizer>
-    {pluralize(props.count, '', props.one, props.four, props.many)}
+    {pluralize(props.count, '', props.one, props.some, props.many)}
   </Pluralizer>
 );

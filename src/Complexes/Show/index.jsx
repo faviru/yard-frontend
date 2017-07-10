@@ -61,28 +61,7 @@ export default class Index extends React.Component {
   }
 
   render() {
-    const { name, location = { subwayIds: [] },
-    statistics = {}, details = {} } = this.state.complex;
-    const {
-      area = {},
-      price = { from: {}, to: {} },
-    } = statistics;
-
-    const {
-      maintenanceCosts = 0,
-      ceilHeight = {},
-      propertiesCount = 0,
-      propertyKind = 'flat',
-      security = 'guarded',
-      constructionKind = 'brick',
-      startQuarter = 0,
-      startYear = 0,
-      commissioningQuarter = 0,
-      commissioningYear = 0,
-      parkings = 0,
-      undergroundGarages = 0,
-    } = details;
-
+    const { name, location = { subwayIds: [] } } = this.state.complex;
     return (
       <Complex>
         <Address
@@ -91,22 +70,7 @@ export default class Index extends React.Component {
         />
         <Gallery {...this.state.complex} />
         <Summary />
-        <Features
-          propertiesCount={propertiesCount}
-          propertyKind={propertyKind}
-          security={security}
-          constructionKind={constructionKind}
-          area={area}
-          ceilHeight={ceilHeight}
-          maintenanceCosts={maintenanceCosts}
-          startQuarter={startQuarter}
-          startYear={startYear}
-          commissioningQuarter={commissioningQuarter}
-          commissioningYear={commissioningYear}
-          parkings={parkings}
-          undergroundGarages={undergroundGarages}
-          price={{ from: price.from.rub, to: price.to.rub }}
-        />
+        <Features {...(this.state.complex || {})} />
         <Description />
         <Infrastructure />
         <OfferCards>

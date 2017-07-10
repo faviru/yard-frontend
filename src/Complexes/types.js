@@ -51,8 +51,8 @@ export type PriceValues = {
 }
 
 export type Price = {
-  from?: PriceValues,
-  to?: PriceValues
+  from: PriceValues,
+  to: PriceValues
 }
 export type Area = {
   from?: number,

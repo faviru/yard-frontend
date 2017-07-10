@@ -62,7 +62,7 @@ export default (props: Complex) => {
             <Pluralizer
               count={images.length}
               one={'фотография'}
-              four={'фотографии'}
+              some={'фотографии'}
               many={'фотографий'}
             />
           </MoreBtn>
