@@ -3,7 +3,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import Map from './Map';
+import MapBox from './MapBox';
 import type { Location } from '../types';
 
 const AreaFeatures = styled.section`
@@ -55,7 +55,7 @@ export default (props: Props) => (
       <Row>
         <Col lg={6}>
           <AreaMap>
-            <Map location={props.location} />
+            <MapBox location={props.location} />
           </AreaMap>
         </Col>
         <Col lg={6}>
