@@ -1,20 +1,16 @@
 // @flow
 
-export type Accreditiors = {
-  length?: number
-}
-
 export type AdjacentTerritory = {
-  area?: number,
   isAccessOpen?: boolean,
   isAllowedCars?: boolean,
-  isGreeneryPlanted?: boolean,
-  playgrounds?: number
+  isGreeneryPlanted?: boolean
 }
 
 export type Image = {
+  height: number,
+  isPublic?: boolean,
   id: string,
-  isPublic?: boolean
+  width: number
 }
 
 export type LinkedContactId = {
@@ -22,18 +18,20 @@ export type LinkedContactId = {
 }
 
 export type Location = {
-  countryId?: number,
-  countryName?: string,
-  house?: string,
-  latitude?: string,
+  latitude?: number,
   localityId?: number,
-  localityName?: string,
-  longitude?: string,
+  subLocalityName?: string,
+  subwayIds: Array<any>,
+  countryName?: string,
+  longitude?: number,
   postalCode?: number,
-  regionId?: number,
-  regionName?: string,
+  countryId?: number,
+  subLocalityName?: number,
+  house?: string,
+  localityName?: string,
   street?: string,
-  subLocalityName?: string
+  regionId?: number,
+  regionName?: string
 }
 
 export type PurchaseTimeConditions = {
@@ -42,19 +40,19 @@ export type PurchaseTimeConditions = {
 }
 
 export type ResponsibleUser = {
-  departmentId?: number,
-  id?: number
+  id?: number,
+  departmentId?: number
 }
 
 export type PriceValues = {
+  usd?: number,
   eur?: number,
-  rub?: number,
-  usd?: number
+  rub?: number
 }
 
 export type Price = {
-  from?: PriceValues,
-  to?: PriceValues
+  from: PriceValues,
+  to: PriceValues
 }
 export type Area = {
   from?: number,
@@ -62,44 +60,91 @@ export type Area = {
 }
 
 export type Statistics = {
+  resalePropertiesCount?: number,
   price?: Price,
+  totalResaleArea?: Area,
+  resalePrice?: Price,
+  propertiesCount?: number,
+  totalPrimaryArea?: Area,
   primaryPrice?: Price,
   primaryPropertiesCount?: number,
-  propertiesCount?: number,
-  resalePrice?: Price,
-  resalePropertiesCount?: number,
-  totalArea?: Area,
-  totalPrimaryArea?: Area,
-  totalResaleArea?: Area,
-  updatedAt?: string,
-  updatedByUserId?: number
+  totalArea?: Area
+}
+
+export type SaleOffer = {
+  isMortgage?: boolean,
+  agentFee?: number,
+  isBargain?: boolean,
+  kind?: string,
+  isInstallment?: boolean
+}
+
+export type Information = {
+  renovate?: string,
+  condition?: string,
+  ventilation?: string,
+  furniture?: string,
+  conditioning?: string
+}
+
+export type PropertyDefaults = {
+  saleOffer?: SaleOffer,
+  information?: Information
+}
+
+export type CeilHeight = {
+  from?: number,
+  to?: number
+}
+
+export type Details = {
+  commissioningYear?: number,
+  security?: string,
+  parkings?: number,
+  contractType?: string,
+  withWasteDisposalRoom?: boolean,
+  commissioningQuarter?: string,
+  constructionKind?: string,
+  propertyKind?: string,
+  withRubbishChute?: boolean,
+  maintenanceCosts?: number,
+  startQuarter?: string,
+  startYear?: number,
+  ceilHeight?: CeilHeight,
+  undergroundGarages?: number,
+  infrastructureUnits?: Array<any>,
+  architect?: string,
+  accreditors?: Array<any>
 }
 
 export type Complex = {
-  accreditors?: Array<Accreditiors>,
   adjacentTerritory?: AdjacentTerritory,
-  commissioningQuarter?: number,
-  commissioningYear?: number,
-  createdAt?: string,
-  createdByUserId?: number,
-  id: number,
-  images: Array<Image>,
-  keysIssueDate?: string,
-  linkedContactIds?: Array<LinkedContactId>,
-  location: Location,
   name: string,
-  purchaseTimeConditions?: PurchaseTimeConditions,
-  responsibleUser?: ResponsibleUser,
+  updatedAt?: string,
+  location: Location,
   state?: string,
   statistics?: Statistics,
-  updatedAt?: string,
-  updatedByUserId?: number
+  image?: Image,
+  purchaseTimeConditions?: PurchaseTimeConditions,
+  cianId?: number,
+  linkedContactIds?: Array<LinkedContactId>,
+  propertyDefaults?: PropertyDefaults,
+  slug?: string,
+  responsibleUser?: ResponsibleUser,
+  createdByUserId?: number,
+  id: number,
+  amenities: Array<any>,
+  updatedByUserId?: number,
+  createdAt?: string,
+  details?: Details,
+  installment?: any,
+  images: Array<Image>
 }
 
 export type Pagination = {
+  total?: number,
   limit?: number,
-  offset?: number,
-  total?: number
+  offset?: number
 }
 
 export type ComplexesResponse = {

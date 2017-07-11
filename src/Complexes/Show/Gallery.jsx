@@ -3,10 +3,11 @@
 import React from 'react';
 import { Grid } from 'react-flexbox-grid';
 import styled from 'styled-components';
+import Pluralizer from './Pluralizer';
+import { getExternalImageUrl } from '../../utils';
+import type { Complex } from '../types';
 
-import type { Image } from '../types';
-
-const Gallery = styled.section`
+const GalleryWrapper = styled.section`
   position: relative;
   margin: 0 auto;
 `;
@@ -42,22 +43,34 @@ const MoreBtn = styled.button`
 `;
 
 type Props = {
-  images: Array<Image>
+  complex: Complex
 }
 
-export default (props: Props) => (
-  <Gallery>
-    <Wrapper>
-      {props.images.map(image => (
-        <Photo
-          key={image.id}
-          src={`https://images.jqestate.ru/${image.id}-jqestate-512`}
-          alt="House photo"
-        />
-      ))}
-    </Wrapper>
-    <Grid>
-      <MoreBtn>41 фотография</MoreBtn>
-    </Grid>
-  </Gallery>
-);
+export default (props: Props) => {
+  const { images = [] } = props.complex;
+  return (
+    <GalleryWrapper>
+      <Wrapper>
+        {images && images.map(image => (
+          <Photo
+            key={image.id}
+            src={getExternalImageUrl(image)}
+            alt={image.id}
+          />
+        ))}
+      </Wrapper>
+      {images &&
+        <Grid>
+          <MoreBtn>
+            {`${images.length} `}
+            <Pluralizer
+              count={images.length}
+              one="фотография"
+              some="фотографии"
+              many="фотографий"
+            />
+          </MoreBtn>
+        </Grid>}
+    </GalleryWrapper>
+  );
+};

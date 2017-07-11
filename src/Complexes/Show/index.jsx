@@ -4,6 +4,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import type { Match } from 'react-router';
 import styled from 'styled-components';
+import get from '../../api';
 import Address from './Address';
 import Gallery from './Gallery';
 import Summary from './Summary';
@@ -51,42 +52,25 @@ export default class Index extends React.Component {
       throw new Error('House complex identifier was not passed :(');
     }
 
-    fetch(`https://api.jqestate.ru/v1/complexes/${this.props.match.params.id}`)
-    .then(response => response.json())
-    .then((responsejson: Complex) => {
-      this.setState({
-        complex: responsejson,
+    get(`/complexes/${this.props.match.params.id}`)
+      .then((responsejson: Complex) => {
+        this.setState({
+          complex: responsejson,
+        });
       });
-    });
   }
 
   render() {
-    const { name, location = {}, images = [] } = this.state.complex;
+    const { name, location = { subwayIds: [] } } = this.state.complex;
     return (
       <Complex>
         <Address
           name={name}
           detailed={location}
         />
-        <Gallery images={images} />
+        <Gallery complex={this.state.complex || {}} />
         <Summary />
-        <Features
-          propertiesCount={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.propertiesCount :
-            0
-          }
-          priceFrom={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.price.from.rub :
-            0
-          }
-          priceTo={
-            this.state.complex.statistics ?
-            this.state.complex.statistics.price.to.rub :
-            0
-          }
-        />
+        <Features complex={this.state.complex || {}} />
         <Description />
         <Infrastructure />
         <OfferCards>
@@ -122,7 +106,7 @@ export default class Index extends React.Component {
           </Grid>
         </OfferCards>
         <AreaGuide />
-        <AreaFeatures />
+        <AreaFeatures location={location} />
       </Complex>
     );
   }
