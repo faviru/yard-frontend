@@ -42,8 +42,12 @@ const MoreBtn = styled.button`
   }
 `;
 
-export default (props: Complex) => {
-  const { images = [] } = props;
+type Props = {
+  complex: Complex
+}
+
+export default (props: Props) => {
+  const { images = [] } = props.complex;
   return (
     <GalleryWrapper>
       <Wrapper>
@@ -61,9 +65,9 @@ export default (props: Complex) => {
             {`${images.length} `}
             <Pluralizer
               count={images.length}
-              one={'фотография'}
-              some={'фотографии'}
-              many={'фотографий'}
+              one="фотография"
+              some="фотографии"
+              many="фотографий"
             />
           </MoreBtn>
         </Grid>}

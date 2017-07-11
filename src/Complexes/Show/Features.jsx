@@ -12,7 +12,7 @@ const Features = styled.section`
   font-size: 0;
 `;
 
-const Title = styled.h3`
+const MainTitle = styled.h3`
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
   line-height: 1.13;
@@ -21,7 +21,7 @@ const Title = styled.h3`
   color: #3e4247;
 `;
 
-const FeatureTitle = styled.dt`
+const Title = styled.dt`
   display: inline-block;
   font-size: 1rem;
   line-height: 1.38;
@@ -30,7 +30,7 @@ const FeatureTitle = styled.dt`
   width: 50%;
 `;
 
-const FeatureText = styled.dd`
+const Text = styled.dd`
   display: inline-block;
   margin: 0.5rem 0 0 0;
   font-size: 1rem;
@@ -40,7 +40,7 @@ const FeatureText = styled.dd`
   color: #3e4247;
 `;
 
-export function getFormatCeilHeight(from: ?number, to: ?number): string {
+export function getFormattedCeilHeight(from: ?number, to: ?number): string {
   const formattedFrom = from && from.toFixed(2);
   const formattedTo = to && to.toFixed(2);
   const singleValue = formattedFrom || formattedTo;
@@ -48,9 +48,9 @@ export function getFormatCeilHeight(from: ?number, to: ?number): string {
   if (formattedFrom && formattedTo) {
     return `${formattedFrom || ''} - ${formattedTo || ''} м`;
   } else
-  if (singleValue != null) {
-    return `${singleValue} м`;
-  }
+    if (singleValue != null) {
+      return `${singleValue} м`;
+    }
 
   return 'Не указана';
 }
@@ -66,11 +66,15 @@ function getFormattedRange(
   return `${formattedFrom}${formattedTo}${units}`;
 }
 
-export default (props: Complex) => {
+type Props = {
+  complex: Complex
+}
+
+export default (props: Props) => {
   const {
     statistics = {},
     details = {},
-  } = props;
+  } = props.complex;
 
   const {
     totalArea = {},
@@ -97,45 +101,45 @@ export default (props: Complex) => {
       <Grid>
         <Row>
           <Col lg={2}>
-            <Title>Характеристики</Title>
+            <MainTitle>Характеристики</MainTitle>
           </Col>
         </Row>
         <Row>
           <Col lg={4}>
             <dl>
-              <FeatureTitle>Количество квартир</FeatureTitle>
-              <FeatureText>{propertiesCount}</FeatureText>
-              <FeatureTitle>Статус</FeatureTitle>
-              <FeatureText>{kinds[propertyKind || 'flat']}</FeatureText>
-              <FeatureTitle>Цены</FeatureTitle>
-              <FeatureText>{getFormattedRange(formatPrice(price.from.rub), formatPrice(price.to.rub), 'млн')}</FeatureText>
-              <FeatureTitle>Безопасность</FeatureTitle>
-              <FeatureText>{securityKinds[security]}</FeatureText>
+              <Title>Количество квартир</Title>
+              <Text>{propertiesCount}</Text>
+              <Title>Статус</Title>
+              <Text>{kinds[propertyKind || 'flat']}</Text>
+              <Title>Цены</Title>
+              <Text>{getFormattedRange(formatPrice(price.from.rub), formatPrice(price.to.rub), 'млн')}</Text>
+              <Title>Безопасность</Title>
+              <Text>{securityKinds[security]}</Text>
             </dl>
           </Col>
           <Col lg={4}>
             <dl>
-              <FeatureTitle>Конструкция корпусов</FeatureTitle>
-              <FeatureText>{constructionKinds[constructionKind]}</FeatureText>
-              <FeatureTitle>Площадь</FeatureTitle>
-              <FeatureText>{getFormattedRange(totalArea.from, totalArea.to, 'м²')}</FeatureText>
-              <FeatureTitle>Высота потолков</FeatureTitle>
-              <FeatureText>{getFormatCeilHeight(ceilHeight.from, ceilHeight.to)}</FeatureText>
-              <FeatureTitle>Обслуживание</FeatureTitle>
-              <FeatureText>{maintenanceCosts} руб / м² / месяц</FeatureText>
+              <Title>Конструкция корпусов</Title>
+              <Text>{constructionKinds[constructionKind]}</Text>
+              <Title>Площадь</Title>
+              <Text>{getFormattedRange(totalArea.from, totalArea.to, 'м²')}</Text>
+              <Title>Высота потолков</Title>
+              <Text>{getFormattedCeilHeight(ceilHeight.from, ceilHeight.to)}</Text>
+              <Title>Обслуживание</Title>
+              <Text>{maintenanceCosts} руб / м² / месяц</Text>
             </dl>
           </Col>
           <Col lg={4}>
             <dl>
-              <FeatureTitle>Начало строительства</FeatureTitle>
-              <FeatureText>{quarters[startQuarter]} квартал {startYear} года</FeatureText>
-              <FeatureTitle>Конец строительства</FeatureTitle>
-              <FeatureText>{quarters[commissioningQuarter]}
-                квартал {commissioningYear} года</FeatureText>
-              <FeatureTitle>Наземная парковка</FeatureTitle>
-              <FeatureText>{(undergroundGarages) ? `${undergroundGarages} м/м` : 'Нет'}</FeatureText>
-              <FeatureTitle>Подземная парковка</FeatureTitle>
-              <FeatureText>{(parkings) ? `${parkings} м/м` : 'Нет'}</FeatureText>
+              <Title>Начало строительства</Title>
+              <Text>{quarters[startQuarter]} квартал {startYear} года</Text>
+              <Title>Конец строительства</Title>
+              <Text>{quarters[commissioningQuarter]}
+                квартал {commissioningYear} года</Text>
+              <Title>Наземная парковка</Title>
+              <Text>{(undergroundGarages) ? `${undergroundGarages} м/м` : 'Нет'}</Text>
+              <Title>Подземная парковка</Title>
+              <Text>{(parkings) ? `${parkings} м/м` : 'Нет'}</Text>
             </dl>
           </Col>
         </Row>

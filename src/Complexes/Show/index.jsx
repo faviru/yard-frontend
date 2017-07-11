@@ -53,11 +53,11 @@ export default class Index extends React.Component {
     }
 
     get(`/complexes/${this.props.match.params.id}`)
-    .then((responsejson: Complex) => {
-      this.setState({
-        complex: responsejson,
+      .then((responsejson: Complex) => {
+        this.setState({
+          complex: responsejson,
+        });
       });
-    });
   }
 
   render() {
@@ -68,9 +68,9 @@ export default class Index extends React.Component {
           name={name}
           detailed={location}
         />
-        <Gallery {...this.state.complex} />
+        <Gallery complex={this.state.complex || {}} />
         <Summary />
-        <Features {...(this.state.complex || {})} />
+        <Features complex={this.state.complex || {}} />
         <Description />
         <Infrastructure />
         <OfferCards>
